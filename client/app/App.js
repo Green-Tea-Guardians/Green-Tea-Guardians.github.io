@@ -4,13 +4,7 @@ import AppRoutes from "./AppRoutes";
 
 const App = () => {
   return (
-    <div style={{
-      backgroundImage: `url("https://i.ibb.co/DRZwC2v/image-2.png")`,
-      backgroundRepeat: 'no-repeat',
-      backgroundSize: 'cover', 
-      backgroundPosition: 'center', 
-      minHeight: '100vh', 
-    }} className="app-container">
+    <div>
       <Navbar />
       <AppRoutes />
     </div>

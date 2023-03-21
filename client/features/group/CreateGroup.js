@@ -25,7 +25,7 @@ function CreateGroup(props) {
     }
   
     return (
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="create-container">
         <label>
           Group Name:
           <input type="text" value={groupName} onChange={handleGroupNameChange} />
