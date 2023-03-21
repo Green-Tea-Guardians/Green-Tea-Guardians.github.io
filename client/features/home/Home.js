@@ -10,9 +10,10 @@ const Home = (props) => {
   const username = useSelector((state) => state.auth.me.username);
 
   return (
-    <div id='groups-container'>
-    <Link to="/groups">Group</Link>
+    <div>
+    <Link to="/groups" className='group-container'>Group</Link>
     </div>
+
   );
 };
 
