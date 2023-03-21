@@ -8,7 +8,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 const root = createRoot(document.getElementById('app'));
 
 root.render(
-  <Router>
+  <Router >
     <Provider store={store}>
       <App />
     </Provider>

@@ -10,6 +10,9 @@ const Home = (props) => {
   return (
     <div>
       <h3>Welcome, {username}</h3>
+    <div id='groups-container'>
+    <Link to="/groups" className='group-container'>Group</Link>
+    </div>
     </div>
   );
 };
