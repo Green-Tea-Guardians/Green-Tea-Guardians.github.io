@@ -9,3 +9,4 @@ function SearchGroup(props) {
 }
 
 export default SearchGroup;
+export default SearchGroup;
