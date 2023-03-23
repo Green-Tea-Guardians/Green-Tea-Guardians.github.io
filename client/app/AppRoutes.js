@@ -13,10 +13,6 @@ import YourGroup from "../features/group/YourGroup";
 import About from "../features/users/About";
 import Setting from "../features/users/Setting";
 
-/**
- * COMPONENT
- */
-
 const AppRoutes = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
   const dispatch = useDispatch();
@@ -34,7 +30,7 @@ const AppRoutes = () => {
           <Route path="/create" element={<CreateGroup />} />
           <Route path="/search" element={<SearchGroup />} />
           <Route path="/groups" element={<GroupLanding />} />
-          <Route path="/profile" element={<UserProfile/>}/>
+          <Route path="/profile" element={<UserProfile />} />
           <Route path="/chat" element={<Chat />} />
           <Route path="/yourGroup" element={<YourGroup />} />
           <Route path="/about" element={<About />} />
@@ -42,10 +38,7 @@ const AppRoutes = () => {
         </Routes>
       ) : (
         <Routes>
-          <Route
-            path="/*"
-            element={<AuthForm name="login" displayName="Login" />}
-          />
+            <Route path="/*" element={<Home />} />
           <Route
             path="/login"
             element={<AuthForm name="login" displayName="Login" />}
