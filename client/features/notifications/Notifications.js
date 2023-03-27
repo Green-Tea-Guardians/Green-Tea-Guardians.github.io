@@ -1,13 +1,13 @@
 import React from "react";
 import Navbar from "../navbar/Navbar";
 
-function Setting(props) {
+function Notifications(props) {
   return (
     <div>
       <Navbar></Navbar>
-      <div>Additional Settings</div>
+      <div>NOTIFICATIONS</div>
     </div>
   );
 }
 
-export default Setting;
+export default Notifications;

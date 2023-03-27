@@ -1,13 +1,13 @@
 import React from "react";
 import Navbar from "../navbar/Navbar";
 
-function Setting(props) {
+function Messenger(props) {
   return (
     <div>
       <Navbar></Navbar>
-      <div>Additional Settings</div>
+      <div>MESSENGER</div>
     </div>
   );
 }
 
-export default Setting;
+export default Messenger;
