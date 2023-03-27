@@ -1,17 +1,36 @@
 import React from "react";
-import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
+import { logout } from "../../app/store";
+import Categories from "../categories/Categories";
+import GroupCard from "../groupCard/GroupCard";
+import Navbar from "../navbar/Navbar";
 
-
-/**
- * COMPONENT
- */
-const Home = (props) => {
-  const username = useSelector((state) => state.auth.me.username);
+const Home = () => {
+  const isLoggedIn = useSelector((state) => !!state.auth.me.id);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const logoutAndRedirectHome = () => {
+    dispatch(logout());
+    navigate("/login");
+  };
 
   return (
-    <div id='groups-container'>
-    <Link to="/groups">Group</Link>
+    <div className="home-container">
+      <Navbar></Navbar>
+      <div id="browseGroupsBody">
+        <Categories></Categories>
+        <div id="displayedGroupsContainer">
+          <GroupCard></GroupCard>
+          <GroupCard></GroupCard>
+          <GroupCard></GroupCard>
+          <GroupCard></GroupCard>
+          <GroupCard></GroupCard>
+          <GroupCard></GroupCard>
+          <GroupCard></GroupCard>
+          <GroupCard></GroupCard>
+        </div>
+      </div>
     </div>
   );
 };

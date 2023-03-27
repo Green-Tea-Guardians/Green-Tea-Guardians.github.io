@@ -2,7 +2,7 @@ import React from 'react';
 
 function SearchGroup(props) {
     return (
-        <div>
+        <div >
          search 
         </div>
     );

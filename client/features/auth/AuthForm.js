@@ -21,22 +21,22 @@ const AuthForm = ({ name, displayName }) => {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit} name={name}>
+    <div id='auth-container' >
+      <form onSubmit={handleSubmit} name={name} id='landing-form'>
         <div>
-          <label htmlFor="username">
+          <label htmlFor="username" className='landing-label'>
             <small>Username</small>
           </label>
-          <input name="username" type="text" />
+          <input name="username" type="text" className='landing-input' />
         </div>
         <div>
-          <label htmlFor="password">
+          <label htmlFor="password" className='landing-label'>
             <small>Password</small>
           </label>
-          <input name="password" type="password" />
+          <input name="password" type="password" className='landing-input'/>
         </div>
         <div>
-          <button type="submit">{displayName}</button>
+          <button type="submit" id='submit-login'>{displayName}</button>
         </div>
         {error && <div> {error} </div>}
       </form>
