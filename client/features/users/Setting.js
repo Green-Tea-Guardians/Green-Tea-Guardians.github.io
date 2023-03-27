@@ -1,11 +1,13 @@
-import React from 'react';
+import React from "react";
+import Navbar from "../navbar/Navbar";
 
 function Setting(props) {
-    return (
-        <div>
-            Additional Settings
-        </div>
-    );
-};
+  return (
+    <div>
+      <Navbar></Navbar>
+      <div>Additional Settings</div>
+    </div>
+  );
+}
 
 export default Setting;

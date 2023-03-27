@@ -60,3 +60,364 @@ top: 10%;
   background-size: cover;
  }
  
+
+ /* New CSS as of 3/27 */
+
+/* The Nav Bar Itself */
+
+#topNavBar {
+  display: flex;
+  align-items: center;
+  height: 60px;
+  background-color: #373535;
+}
+
+/* Nav line divider */
+
+.navLineDivider {
+  width: 1px;
+  height: 25px;
+  background-color: white;
+}
+
+
+/* Left side Logo Section */
+
+#navbarLogoSection {
+  width: 200px;
+  height: 60px;
+}
+
+/* Middle Section */
+
+#navbarMiddleSection {
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+  align-items: center;
+  width: 1440px;
+  padding: 0px 30px;
+}
+
+/* Middle Search Bar */
+
+#navbarSearchBar {
+  position: relative;
+  height: 45px;
+  width: 560px;
+}
+
+#navbarSearchBarKeywordField {
+  box-sizing: border-box;
+  position: absolute;
+  width: 264.88px;
+  height: 45px;
+  left: 0px;
+  padding: 0px 0px 0px 10px;
+  background: #F1F1F1;
+  border: none;
+  border-radius: 10px 0px 0px 10px;
+}
+
+#navbarSearchBarLocationField {
+  box-sizing: border-box;
+  position: absolute;
+  width: 240px;
+  height: 45px;
+  left: 266px;
+  padding: 0px 0px 0px 10px;
+  background: #F1F1F1;
+  border: none;
+  border-left: 0.5px solid #373535;
+}
+
+#navbarSearchBarSubmitButton {
+  position: absolute;
+  width: 49.66px;
+  height: 45px;
+  left: 507px;
+  background: #4F7525;
+  border: none;
+  border-left: 0.5px solid #373535;
+  border-radius: 0px 10px 10px 0px;
+  cursor: pointer;
+}
+
+
+
+/* Middle groups button */
+
+#groupsDropdown {
+  display: flex;
+  position: relative;
+  align-items: center;
+  width: 137px;
+  margin-top: 14px;
+  padding-bottom: 14px;
+}
+
+#groupsDropdownContainer {
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  width: 137px;
+  height: 32px;
+  background: #2D4215;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#groupsDropdownText {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #F1F1F1;
+}
+
+#groupsDropdownCaret {
+  position: absolute;
+  right: 10px;
+  color: white;
+}
+
+#groupsDropdownContent, #profileDropdownContent {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+#groupsDropdownContent {
+  top: 46px;
+  right: -12px;
+} 
+
+#profileDropdownContent {
+  top: 60px;
+  right: 0px;
+}
+
+#groupsDropdownContent .navLink, #profileDropdownContent .navLink {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+
+/* Change color of dropdown links on hover */
+#groupsDropdownContent .navLink:hover, #profileDropdownContent .navLink:hover {
+  background-color: #ddd;
+}
+
+/* Show the dropdown menu on hover */
+#groupsDropdown:hover #groupsDropdownContent, #profileDropdown:hover #profileDropdownContent {
+  display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+#groupsDropdown:hover #groupsDropdownContainer, #profileDropdown:hover #profileDropdownContainer {
+    background-color: #3e8e41;
+}
+
+#groupsDropdown:hover .rotatable, #profileDropdown:hover .rotatable {
+    transform: rotate(180deg);
+}
+
+.rotatable {
+  position: relative;
+  transition-duration: 300ms;
+}
+
+.navLink {
+  width: 100%;
+  text-align: left;
+}
+
+/* Right side nav links */
+
+#navbarLinks {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  width: 200px;
+  padding: 0px 0px 0px 15px;
+}
+
+#navbarLinks * {
+  padding: 5px;
+}
+
+#navbarLinks button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+	background: none;
+  border: none;
+	padding: 0;
+	cursor: pointer;
+}
+
+#profileDropdownLink {
+  position: relative;
+  width: 45px;
+  height: 45px;
+  border-radius: 50px;
+}
+
+.fa {
+  color: white;
+  font-size: 20px;
+}
+
+#trendingCategoriesBody a {
+  text-decoration: none;
+  color: black;
+}
+
+#browseGroupsBody {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: lightgray;
+}
+
+#trendingCategoriesContainer h1 {
+  padding: 35px 0px 35px 150px;
+}
+
+#trendingCategoriesBody {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 1300px;
+}
+
+.trendingCategory {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: lightblue;
+  width: 300px;
+  height: 100px;
+  border-radius: 10px;
+  margin: 10px;
+}
+
+#displayedGroupsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 1300px;
+}
+
+.groupCard {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  background-color: orange;
+  margin: 10px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.groupCardPicture {
+  height: 50%;
+  background-color: teal;
+}
+
+.groupCardQuickButton {
+  display: flex;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  top: 135px;
+  right: 20px;
+  border-radius: 50%;
+  background-color: lightgreen;
+}
+
+.groupCardInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background-color: none;
+  height: 50%;
+  padding: 0px 10px;
+}
+
+.groupCardInfo * {
+  width: 100%;
+  padding: 5px 0px;
+}
+
+
+#createGroupContainer {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 700px;
+  background-color: gray;
+  border-radius: 10px;
+}
+
+#createGroupBody {
+  position: relative;
+  padding-bottom: 20px;
+}
+
+.createGroupTextField {
+  padding: 10px;
+}
+
+.createGroupTextField input {
+  width: 650px;
+  height: 30px;
+  border-radius: 10px;
+}
+
+#groupDate input, #groupType input {
+  width: 300px;
+}
+
+#groupImage {
+  position: absolute;
+  background-color: #f1f1f1;
+  right: 50px;
+  bottom: 85px;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+}
+
+#groupImage h4 {
+  position: absolute;
+  bottom: 55px;
+  left: 80px;
+}
+
+#groupImage button {
+  position: absolute;
+  bottom: 115px;
+  left: 95px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
