@@ -53,7 +53,7 @@ const Navbar = () => {
       <div class="navLineDivider"></div>
 
       <div id="navbarLinks">
-        <Link class="navLink" to="/messages">
+        <Link class="navLink" to="/messenger">
           <i class="fa fa-comment"></i>
         </Link>
         <Link class="navLink" to="/notifications">

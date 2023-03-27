@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../navbar/Navbar";
+import GroupCard from "../groupCard/GroupCard";
 
 function GroupLanding(props) {
   let navigate = useNavigate();
@@ -13,9 +14,27 @@ function GroupLanding(props) {
   return (
     <div>
       <Navbar></Navbar>
-      <div>
-        <button onClick={create}> Create </button>
-        <button onClick={search}> Search </button>
+      <h1>Your Groups</h1>
+      <div id="displayedGroupsContainer">
+        <GroupCard></GroupCard>
+        <GroupCard></GroupCard>
+        <GroupCard></GroupCard>
+        <GroupCard></GroupCard>
+        <GroupCard></GroupCard>
+        <GroupCard></GroupCard>
+        <GroupCard></GroupCard>
+        <GroupCard></GroupCard>
+      </div>
+      <h2>Groups you have applies to</h2>
+      <div id="displayedGroupsContainer">
+        <GroupCard></GroupCard>
+        <GroupCard></GroupCard>
+        <GroupCard></GroupCard>
+        <GroupCard></GroupCard>
+        <GroupCard></GroupCard>
+        <GroupCard></GroupCard>
+        <GroupCard></GroupCard>
+        <GroupCard></GroupCard>
       </div>
     </div>
   );
