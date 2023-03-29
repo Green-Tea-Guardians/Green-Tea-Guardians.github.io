@@ -84,8 +84,27 @@ top: 10%;
 /* Left side Logo Section */
 
 #navbarLogoSection {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-family: 'Jim Nightshade';
+  font-size: 36px;
+  font-weight: 100;
   width: 200px;
   height: 60px;
+  text-decoration: none;
+  color: white;
+}
+
+#navbarLogoSection img {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+}
+
+#navbarLogoSection p {
+  padding-bottom: 5px;
+  padding-right: 20px;
 }
 
 /* Middle Section */
@@ -136,7 +155,7 @@ top: 10%;
   width: 49.66px;
   height: 45px;
   left: 507px;
-  background: #4F7525;
+  background: #BC4934;
   border: none;
   border-left: 0.5px solid #373535;
   border-radius: 0px 10px 10px 0px;
@@ -163,7 +182,7 @@ top: 10%;
   justify-content: center;
   width: 137px;
   height: 32px;
-  background: #2D4215;
+  background: #BC4934;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 5px;
   cursor: pointer;
@@ -222,11 +241,13 @@ top: 10%;
 /* Show the dropdown menu on hover */
 #groupsDropdown:hover #groupsDropdownContent, #profileDropdown:hover #profileDropdownContent {
   display: block;
+  overflow: hidden;
+  border-radius: 0px 0px 5px 5px;
 }
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
 #groupsDropdown:hover #groupsDropdownContainer, #profileDropdown:hover #profileDropdownContainer {
-    background-color: #3e8e41;
+    background-color: #E6693F;
 }
 
 #groupsDropdown:hover .rotatable, #profileDropdown:hover .rotatable {
@@ -256,6 +277,10 @@ top: 10%;
 
 #navbarLinks * {
   padding: 5px;
+}
+
+#profileDropdownContent {
+  padding: 0;
 }
 
 #navbarLinks button {
@@ -289,11 +314,14 @@ top: 10%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: lightgray;
+  background-color: #F4E6DB;
 }
 
 #trendingCategoriesContainer h1 {
-  padding: 35px 0px 35px 150px;
+  font-size: 48px;
+  padding: 15px 0px 10px 150px;
+  font-family: 'Cabin', sans-serif;
+  font-weight: 100;
 }
 
 #trendingCategoriesBody {
@@ -302,17 +330,20 @@ top: 10%;
   justify-content: center;
   align-items: center;
   width: 1300px;
+  padding-bottom: 40px;
 }
 
 .trendingCategory {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: lightblue;
+  background-color: #BC4934;
   width: 300px;
   height: 100px;
   border-radius: 10px;
   margin: 10px;
+  box-shadow: 0px 1px 4px black;
+  font-size: 20px;
 }
 
 #displayedGroupsContainer {
@@ -327,15 +358,19 @@ top: 10%;
   position: relative;
   width: 300px;
   height: 300px;
-  background-color: orange;
+  background-color: #FBDCC7;
   margin: 10px;
   border-radius: 10px;
   overflow: hidden;
+  text-decoration: none;
+  color: black;
+  box-shadow: 0px 1px 4px black;
 }
 
 .groupCardPicture {
   height: 50%;
-  background-color: teal;
+  background-image: url(./images/hikingImage.jpg);
+  background-size: cover;
 }
 
 .groupCardQuickButton {
@@ -348,7 +383,7 @@ top: 10%;
   top: 135px;
   right: 20px;
   border-radius: 50%;
-  background-color: lightgreen;
+  background-color: #BC4934;
 }
 
 .groupCardInfo {
@@ -420,4 +455,12 @@ top: 10%;
   width: 50px;
   height: 50px;
   border-radius: 50%;
+}
+
+.hoverShadowedLink:hover {
+  box-shadow: 0px 1px 10px rgb(199, 65, 65);
+}
+
+#navbarSearchBarSubmitButton:hover {
+  background-color: #E6693F;
 }

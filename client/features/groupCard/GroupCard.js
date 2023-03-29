@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 const GroupCard = () => {
   return (
-    <Link to="/" class="groupCard">
+    <Link to="/" class="groupCard hoverShadowedLink">
       <div class="groupCardPicture"></div>
       <div class="groupCardQuickButton">+</div>
       <div class="groupCardInfo">
