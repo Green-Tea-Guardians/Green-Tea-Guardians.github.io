@@ -7,29 +7,29 @@ const Categories = () => {
     <div id="trendingCategoriesContainer">
       <h1>Trending Categories</h1>
       <div id="trendingCategoriesBody">
-        <Link to="/" class="trendingCategory">
+        <Link to="/" class="trendingCategory hoverShadowedLink">
           Music
         </Link>
-        <Link to="/" class="trendingCategory">
-          Music
+        <Link to="/" class="trendingCategory hoverShadowedLink">
+          Business
         </Link>
-        <Link to="/" class="trendingCategory">
-          Music
+        <Link to="/" class="trendingCategory hoverShadowedLink">
+          Golf
         </Link>
-        <Link to="/" class="trendingCategory">
-          Music
+        <Link to="/" class="trendingCategory hoverShadowedLink">
+          Dungeons & Dragons
         </Link>
-        <Link to="/" class="trendingCategory">
-          Music
+        <Link to="/" class="trendingCategory hoverShadowedLink">
+          Gaming
         </Link>
-        <Link to="/" class="trendingCategory">
-          Music
+        <Link to="/" class="trendingCategory hoverShadowedLink">
+          Climbing
         </Link>
-        <Link to="/" class="trendingCategory">
-          Music
+        <Link to="/" class="trendingCategory hoverShadowedLink">
+          Comedy
         </Link>
-        <Link to="/" class="trendingCategory">
-          Music
+        <Link to="/" class="trendingCategory hoverShadowedLink">
+          Hiking
         </Link>
       </div>
     </div>
