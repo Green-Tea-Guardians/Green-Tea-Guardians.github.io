@@ -16,17 +16,37 @@ export const fetchGroupsAsync = createAsyncThunk('allGroups', async () => {
 })
 
 export const createGroupAsync = createAsyncThunk(
-  'groups/createGroupAsync',
-  async (groupData, thunkAPI) => {
+  'group/createGroup',
+  async ({ groupData, creatorUsername }, { rejectWithValue }) => {
     try {
-      const response = await axios.post('/api/groups', groupData);
+      // First, retrieve the user ID associated with the creator's username
+      const userResponse = await axios.get(`/api/users?username=${creatorUsername}`);
+      const userId = userResponse.data.id;
+
+      // Then, create the new group with the retrieved user ID as the creator ID
+      const response = await axios.post('/api/groups', {
+        ...groupData,
+        creatorId: userId,
+      });
       return response.data;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.response.data);
+      return rejectWithValue(error.response.data);
     }
   }
 );
+
   
+export const fetchGroupsByCreatorId = createAsyncThunk(
+  'group/fetchGroupsByCreatorId',
+  async (creatorId, { rejectWithValue }) => {
+    try {
+      const response = await axios.get(`/api/groups/creator/${creatorId}`);
+      return response.data;
+    } catch (error) {
+      return rejectWithValue(error.response.data);
+    }
+  }
+);
 export const allGroupsSlice = createSlice({
     name: 'allGroups',
     initialState,
@@ -37,7 +57,11 @@ export const allGroupsSlice = createSlice({
         })
         .addCase(createGroupAsync.fulfilled, (state, action) => {
             state.push(action.payload);
-          });
+          })
+        .addCase(fetchGroupsByCreatorId.fulfilled, (state, action) => {
+            return action.payload
+       });
+          
     }
 })
 

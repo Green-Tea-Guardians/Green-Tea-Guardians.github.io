@@ -1,21 +1,29 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchGroupsByCreatorId } from './groupSlice';
 
-function YourGroup(props) {
-  const userId = props.userId;
-  const allGroups = useSelector(state => state.group.allGroups);
-  const userGroups = allGroups.filter(group => group.creatorId === userId);
+const YourGroups = ({ creatorId }) => {
+  const groups = useSelector((state) =>
+    state.allGroups.filter((group) => group.creatorId === creatorId)
+  );
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (creatorId) {
+      dispatch(fetchGroupsByCreatorId(creatorId));
+    }
+  }, [dispatch, creatorId]);
 
   return (
     <div>
-      <h2>Your Groups</h2>
+      <h1>Your Groups</h1>
       <ul>
-        {userGroups.map(group => (
+        {groups.map((group) => (
           <li key={group.id}>{group.name}</li>
         ))}
       </ul>
     </div>
   );
-}
+};
 
-export default YourGroup;
+export default YourGroups;
