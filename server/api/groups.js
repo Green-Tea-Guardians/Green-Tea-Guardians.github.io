@@ -20,4 +20,15 @@ router.get('/:groupId', async (req, res, next) => {
     }
 })
 
+router.post('/', async (req, res) => {
+  try {
+    const group = await Group.create(req.body);
+    res.status(201).json(group);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Failed to create group.' });
+  }
+});
+
+
 module.exports = router

@@ -1,76 +1,68 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import Navbar from "../navbar/Navbar";
+import { useDispatch } from 'react-redux';
+import { createGroupAsync } from './groupSlice';
 
-function CreateGroup(props) {
-  const [groupName, setGroupName] = useState("");
-  const [groupDescription, setGroupDescription] = useState("");
+const CreateGroup = () => {
+  const dispatch = useDispatch();
+  const [groupData, setGroupData] = useState({
+    name: '',
+    description: '',
+    location: '',
+    size: '',
+    public: '',
+    ages: '',
+  });
 
-  function handleGroupNameChange(event) {
-    setGroupName(event.target.value);
-  }
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setGroupData((prevGroupData) => ({ ...prevGroupData, [name]: value }));
+  };
 
-  function handleGroupDescriptionChange(event) {
-    setGroupDescription(event.target.value);
-  }
-
-  function handleSubmit(event) {
+  const handleSubmit = (event) => {
     event.preventDefault();
-
-    const newGroup = {
-      name: groupName,
-      description: groupDescription,
+    const data = {
+      ...groupData,
+      size: groupData.size || 0
     };
-
-    props.onCreateGroup(newGroup);
-  }
+    dispatch(createGroupAsync(data));
+  };
 
   return (
-    <div>
-      <Navbar></Navbar>
-      <div id="createGroupContainer">
-        <h1 id="createGroupTitle">Create a group</h1>
+    <div> 
+    <Navbar></Navbar>
+    <div id="createGroupContainer">
+      <h1 id="createGroupTitle">Create a group</h1>
+      <form onSubmit={handleSubmit}>
         <div id="createGroupBody">
-          <div class="createGroupTextField" id="groupTitle">
-            <h3>Title of the group</h3>
-            <input></input>
-          </div>
-          <div class="createGroupTextField" id="groupAddress">
-            <h3>Venue Address</h3>
-            <input></input>
-          </div>
-          <div class="createGroupTextField" id="groupDate">
-            <h3>Event Date</h3>
-            <input placeholder="dd / mm / yy"></input>
-          </div>
-          <div class="createGroupTextField" id="groupType">
-            <h2>Event Type</h2>
-            <input></input>
-          </div>
-          <div class="createGroupTextField" id="groupImage">
-            <button id="groupImageAddButton"></button>
-            <h4>Add Image</h4>
-          </div>
-          <div class="createGroupTextField" id="groupSettings">
-            <h3>Settings</h3>
-            <input></input>
-          </div>
-          <button>Create</button>
+          <label htmlFor="name">Name:</label>
+          <input  class="createGroupTextField" type="text" id="name" name="name" value={groupData.name} onChange={handleChange} />
         </div>
-      </div>
+        <div>
+          <label htmlFor="description">Description:</label>
+          <textarea id="description" name="description" value={groupData.description} onChange={handleChange} />
+        </div>
+        <div>
+          <label htmlFor="location">Location:</label>
+          <input  class="createGroupTextField" type="text" id="location" name="location" value={groupData.location} onChange={handleChange} />
+        </div>
+        <div>
+          <label htmlFor="size">Size:</label>
+          <input  class="createGroupTextField" type="number" id="size" name="size" value={groupData.size} onChange={handleChange} />
+        </div>
+        <div>
+          <label htmlFor="public">Public:</label>
+          <input  class="createGroupTextField" type="checkbox" id="public" name="public" checked={groupData.public} onChange={handleChange} />
+        </div>
+        <div>
+          <label htmlFor="ages">Ages:</label>
+          <input  class="createGroupTextField" type="text" id="ages" name="ages" value={groupData.ages} onChange={handleChange} />
+        </div>
+        <button type="submit">Create Group</button>
+      </form>
+    </div>
     </div>
   );
-}
+};
 
 export default CreateGroup;
-
-// <form onSubmit={handleSubmit} className="create-container">
-//   <label>
-//     Group Name:
-//     <input type="text" value={groupName} onChange={handleGroupNameChange} />
-//   </label>
-//   <label>
-//     Group Description:
-//     <textarea value={groupDescription} onChange={handleGroupDescriptionChange} />
-//   </label>
-//   <button type="submit">Create Group</button>
-// </form>

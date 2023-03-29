@@ -22,13 +22,6 @@ const Home = () => {
         <Categories></Categories>
         <div id="displayedGroupsContainer">
           <GroupCard></GroupCard>
-          <GroupCard></GroupCard>
-          <GroupCard></GroupCard>
-          <GroupCard></GroupCard>
-          <GroupCard></GroupCard>
-          <GroupCard></GroupCard>
-          <GroupCard></GroupCard>
-          <GroupCard></GroupCard>
         </div>
       </div>
     </div>
