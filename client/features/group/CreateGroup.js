@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Navbar from "../navbar/Navbar";
 import { useDispatch } from 'react-redux';
 import { createGroupAsync } from './groupSlice';
+import { Link, useNavigate } from 'react-router-dom';
 
 const CreateGroup = () => {
   const dispatch = useDispatch();
@@ -21,11 +22,13 @@ const CreateGroup = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    const navigate = useNavigate();
     const data = {
       ...groupData,
       size: groupData.size || 0
     };
     dispatch(createGroupAsync(data));
+    navigate('/yourGroup')
   };
 
   return (
