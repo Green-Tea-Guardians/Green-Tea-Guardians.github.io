@@ -15,6 +15,18 @@ export const fetchGroupsAsync = createAsyncThunk('allGroups', async () => {
    }
 })
 
+export const createGroupAsync = createAsyncThunk(
+  'groups/createGroupAsync',
+  async (groupData, thunkAPI) => {
+    try {
+      const response = await axios.post('/api/groups', groupData);
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.response.data);
+    }
+  }
+);
+  
 export const allGroupsSlice = createSlice({
     name: 'allGroups',
     initialState,
@@ -23,6 +35,9 @@ export const allGroupsSlice = createSlice({
         builder.addCase(fetchGroupsAsync.fulfilled, (state, action) => {
             return action.payload
         })
+        .addCase(createGroupAsync.fulfilled, (state, action) => {
+            state.push(action.payload);
+          });
     }
 })
 
