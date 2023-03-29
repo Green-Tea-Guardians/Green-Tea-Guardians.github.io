@@ -1,7 +1,7 @@
 import React from "react";
 import Navbar from "../navbar/Navbar";
 
-function About(props) {
+const Help = () =>{
   return (
     <div>
       <Navbar></Navbar>
@@ -28,4 +28,4 @@ function About(props) {
   );
 }
 
-export default About;
+export default Help;

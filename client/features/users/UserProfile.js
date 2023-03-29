@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Navbar from "../navbar/Navbar";
 
-function UserProfile(props) {
+const UserProfile = () => {
   return (
     <div>
       <Navbar></Navbar>
