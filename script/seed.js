@@ -22,33 +22,57 @@ async function seed() {
       fName: "Chris",
       lName: "Kang",
       phone: "200-200-2000",
-      image: "https://i.pinimg.com/736x/dd/f0/11/ddf0110aa19f445687b737679eec9cb2.jpg"
+      image: "https://i.pinimg.com/736x/dd/f0/11/ddf0110aa19f445687b737679eec9cb2.jpg",
     }),
-  ])
+    User.create({
+      username: "jenny456",
+      password: "456",
+      email: "jenny@gmail.com",
+      fName: "Jenny",
+      lName: "Lee",
+      phone: "300-300-3000",
+      image: "https://i.pinimg.com/736x/00/7e/6f/007e6f37b853f31fb40639d6f41703df.jpg",
+    }),
+  ]);
+
+  const [user1, user2] = users;
 
   const groups = await Promise.all([
     Group.create({
       name: "Hiking",
-      descriptiion:
-        "Everyone who's interested in hiking, come on through",
+      description: "Everyone who's interested in hiking, come on through",
       location: "x",
-      size: "12",
-      public: "Yes",
+      size: 12,
+      public: true,
       ages: "21 to 40",
+      creatorId: user1.id,
     }),
-  ])
+    Group.create({
+      name: "Board Games",
+      description: "Let's play some board games!",
+      location: "y",
+      size: 6,
+      public: true,
+      ages: "18 and up",
+      creatorId: user2.id,
+    }),
+  ]);
+
   console.log(`seeded ${users.length} users`);
-  console.log(`seeded ${groups.length} group`);
+  console.log(`seeded ${groups.length} groups`);
   console.log(`seeded successfully`);
   return {
     users: {
-      chris: users[0],
+      chris: user1,
+      jenny: user2,
     },
     groups: {
-      groups,
+      hiking: groups[0],
+      boardGames: groups[1],
     },
   };
 }
+
 
 /*
  We've separated the `seed` function from the `runSeed` function.

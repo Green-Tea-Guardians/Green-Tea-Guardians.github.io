@@ -2,7 +2,7 @@ const Sequelize = require('sequelize')
 const db = require('../db')
 
 
- const Group = db.define('groups', {
+const Group = db.define('groups', {
   name: {
     type: Sequelize.STRING,
     allowNull: false
@@ -24,7 +24,13 @@ const db = require('../db')
   ages: {
     type: Sequelize.STRING,
     allowNull: false
+  },
+  creatorId: {
+    type: Sequelize.STRING,
+    allowNull: false
   }
-})
+});
 
-module.exports = Group;
+
+
+module.exports = Group
