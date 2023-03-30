@@ -18,7 +18,7 @@ const Navbar = () => {
         <img src="/images/MainLogo.png"></img>
       </Link>
 
-      <div class="navLineDivider"></div>
+      <div className="navLineDivider"></div>
 
       <div id="navbarMiddleSection">
         <div id="navbarSearchBar">
@@ -53,7 +53,7 @@ const Navbar = () => {
       <div class="navLineDivider"></div>
 
       <div id="navbarLinks">
-        <Link class="navLink" to="/messenger">
+        <Link class="navLink" to="/chat">
           <i class="fa fa-comment"></i>
         </Link>
         <Link class="navLink" to="/notifications">
