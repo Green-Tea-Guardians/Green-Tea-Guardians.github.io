@@ -15,7 +15,8 @@ const Navbar = () => {
   return (
     <nav id="topNavBar">
       <Link to="/" id="navbarLogoSection">
-        <img src="/images/MainLogo.png"></img>
+        <img src="/images/gooseLogo.png"></img>
+        <p>Gaggle</p>
       </Link>
 
       <div className="navLineDivider"></div>
@@ -56,11 +57,11 @@ const Navbar = () => {
         <Link class="navLink" to="/chat">
           <i class="fa fa-comment"></i>
         </Link>
-        <Link class="navLink" to="/notifications">
+        <Link class="navLink navLinkBigButton" to="/notifications">
           <i class="fa fa-bell"></i>
         </Link>
         <div id="profileDropdown">
-          <button>
+          <button class="navLink navLinkBigButton">
             <img
               id="profileDropdownLink"
               src="https://images.unsplash.com/photo-1674574124976-a56d9052c2f8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
@@ -68,7 +69,7 @@ const Navbar = () => {
             <i class="fa fa-angle-up rotatable"></i>
           </button>
           <div id="profileDropdownContent">
-            <Link class="navLink" to="/profile">
+            <Link class="navLink navLinkDropdown" to="/profile">
               View Profile
             </Link>
             <Link class="navLink" to="/settings">
