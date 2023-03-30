@@ -1,6 +1,6 @@
 import React from 'react';
 import io from 'socket.io-client';
-
+import Navbar from '../navbar/Navbar';
 import Messages from './Messages';
 import ChatInput from './ChatInput';
 
@@ -12,7 +12,7 @@ class ChatApp extends React.Component {
     this.sendHandler = this.sendHandler.bind(this);
     
     // Connect to the server
-    this.socket = io(config.api, { query: `username=${props.username}` }).connect();
+    this.socket = io( { query: `username=${props.username}` }).connect();
 
     // Listen for messages from the server
     this.socket.on('server:message', message => {
@@ -43,7 +43,8 @@ class ChatApp extends React.Component {
   render() {
     return (
       <div className="container">
-        <h3>React Chat App</h3>
+        <Navbar></Navbar>
+        <h3>Chat</h3>
         <Messages messages={this.state.messages} />
         <ChatInput onSend={this.sendHandler} />
       </div>

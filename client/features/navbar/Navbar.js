@@ -19,7 +19,7 @@ const Navbar = () => {
         <p>Gaggle</p>
       </Link>
 
-      <div class="navLineDivider"></div>
+      <div className="navLineDivider"></div>
 
       <div id="navbarMiddleSection">
         <div id="navbarSearchBar">
@@ -54,7 +54,7 @@ const Navbar = () => {
       <div class="navLineDivider"></div>
 
       <div id="navbarLinks">
-        <Link class="navLink navLinkBigButton" to="/messenger">
+        <Link class="navLink" to="/chat">
           <i class="fa fa-comment"></i>
         </Link>
         <Link class="navLink navLinkBigButton" to="/notifications">
