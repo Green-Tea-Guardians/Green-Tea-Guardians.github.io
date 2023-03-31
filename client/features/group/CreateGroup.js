@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 import Navbar from "../navbar/Navbar";
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { createGroupAsync } from './groupSlice';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+
 
 const CreateGroup = () => {
+  const userId = useSelector((state) => state.me && state.me.id);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [groupData, setGroupData] = useState({
     name: '',
     description: '',
@@ -14,32 +17,38 @@ const CreateGroup = () => {
     public: '',
     ages: '',
   });
-
+ 
+ 
   const handleChange = (event) => {
     const { name, value } = event.target;
     setGroupData((prevGroupData) => ({ ...prevGroupData, [name]: value }));
   };
-
+ 
+ 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const navigate = useNavigate();
+    if (!groupData.name || !groupData.ages) {
+      alert('Name and Ages fields are required!');
+      return;
+    }
     const data = {
       ...groupData,
-      size: groupData.size || 0
+      size: groupData.size || 0,
+      creatorId: userId,
     };
-    dispatch(createGroupAsync(data));
-    navigate('/yourGroup')
+    dispatch(createGroupAsync({ groupData: data })).then(() => {
+      navigate('/yourGroup');
+    });
   };
-
   return (
-    <div> 
+    <div>
     <Navbar></Navbar>
     <div id="createGroupContainer">
       <h1 id="createGroupTitle">Create a group</h1>
       <form onSubmit={handleSubmit}>
         <div id="createGroupBody">
           <label htmlFor="name">Name:</label>
-          <input  class="createGroupTextField" type="text" id="name" name="name" value={groupData.name} onChange={handleChange} />
+          <input  className="createGroupTextField" type="text" id="name" name="name" value={groupData.name} onChange={handleChange} />
         </div>
         <div>
           <label htmlFor="description">Description:</label>
@@ -47,25 +56,25 @@ const CreateGroup = () => {
         </div>
         <div>
           <label htmlFor="location">Location:</label>
-          <input  class="createGroupTextField" type="text" id="location" name="location" value={groupData.location} onChange={handleChange} />
+          <input  className="createGroupTextField" type="text" id="location" name="location" value={groupData.location} onChange={handleChange} />
         </div>
         <div>
           <label htmlFor="size">Size:</label>
-          <input  class="createGroupTextField" type="number" id="size" name="size" value={groupData.size} onChange={handleChange} />
+          <input  className="createGroupTextField" type="number" id="size" name="size" value={groupData.size} onChange={handleChange} />
         </div>
         <div>
           <label htmlFor="public">Public:</label>
-          <input  class="createGroupTextField" type="checkbox" id="public" name="public" checked={groupData.public} onChange={handleChange} />
+          <input  className="createGroupTextField" type="checkbox" id="public" name="public" checked={groupData.public} onChange={handleChange} />
         </div>
         <div>
           <label htmlFor="ages">Ages:</label>
-          <input  class="createGroupTextField" type="text" id="ages" name="ages" value={groupData.ages} onChange={handleChange} />
+          <input  className="createGroupTextField" type="text" id="ages" name="ages" value={groupData.ages} onChange={handleChange} />
         </div>
         <button type="submit">Create Group</button>
       </form>
     </div>
     </div>
   );
-};
+ };
 
-export default CreateGroup;
+ export default CreateGroup;

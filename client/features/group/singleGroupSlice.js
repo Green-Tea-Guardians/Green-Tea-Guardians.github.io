@@ -1,34 +1,34 @@
 import axios from "axios";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
-// Action Types
-const FETCH_SINGLE_GROUP_SUCCESS = "FETCH_SINGLE_GROUP_SUCCESS";
 
-// Action Creator
-export const fetchSingleGroupSuccess = (group) => ({ type: FETCH_SINGLE_GROUP_SUCCESS, payload: group });
-
-// Thunk Action Creator
-export const fetchSingleGroup = (id) => async (dispatch) => {
-  try {
-    const { data } = await axios.get(`http://localhost:8080/api/groups/${id}`);
-    dispatch(fetchSingleGroupSuccess(data));
-  } catch (err) {
-    console.log(err);
+export const fetchSingleGroup = createAsyncThunk(
+  "singleGroup/fetchSingleGroup",
+  async (id) => {
+    try {
+      const { data } = await axios.get(`http://localhost:8080/api/groups/${id}`);
+      return data;
+    } catch (err) {
+      console.log(err);
+      throw err;
+    }
   }
-};
+);
 
-// Reducer
-const initialState = {};
 
-const singleGroupSlice = (state = initialState, action) => {
-  switch (action.type) {
-    case FETCH_SINGLE_GROUP_SUCCESS:
+const singleGroupSlice = createSlice({
+  name: "singleGroup",
+  initialState: {},
+  reducers: {},
+  extraReducers: (builder) => {
+    builder.addCase(fetchSingleGroup.fulfilled, (state, action) => {
       return action.payload;
-    default:
-      return state;
-  }
-};
+    });
+  },
+});
 
-export default singleGroupSlice;
+export const selectSingleGroup = (state) => {
+  return state.singleGroup
+}
 
-// Selector
-export const selectSingleGroup = (state) => state.SingleGroup;
+export default singleGroupSlice.reducer;

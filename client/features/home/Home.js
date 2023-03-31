@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { logout } from "../../app/store";
 import Categories from "../categories/Categories";
 import GroupCard from "../groupCard/GroupCard";

@@ -20,13 +20,14 @@ const Navbar = () => {
       </Link>
 
       <div className="navLineDivider"></div>
+      <div className="navLineDivider"></div>
 
       <div id="navbarMiddleSection">
         <div id="navbarSearchBar">
-          <input placeholder="search for keywords" class="reset-style" id="navbarSearchBarKeywordField"></input>
+          <input placeholder="search for keywords" className="reset-style" id="navbarSearchBarKeywordField"></input>
           <input placeholder="Seattle, Wa" id="navbarSearchBarLocationField"></input>
           <button id="navbarSearchBarSubmitButton">
-            <i class="fa fa-search"></i>
+            <i className="fa fa-search"></i>
           </button>
         </div>
 
@@ -34,51 +35,51 @@ const Navbar = () => {
           <div id="groupsDropdownContainer">
             <span id="groupsDropdownText">Groups</span>
             <span id="groupsDropdownCaret">
-              <i class="fa fa-angle-up rotatable"></i>
+              <i className="fa fa-angle-up rotatable"></i>
             </span>
           </div>
           <div id="groupsDropdownContent">
-            <Link class="navLink" to="/groups">
+            <Link className="navLink" to="/yourGroup">
               Your Groups
             </Link>
-            <Link class="navLink" to="/create">
+            <Link className="navLink" to="/create">
               Create Group
             </Link>
-            <Link class="navLink" to="/browse">
+            <Link className="navLink" to="/groups">
               Browse Groups
             </Link>
           </div>
         </div>
       </div>
 
-      <div class="navLineDivider"></div>
+      <div className="navLineDivider"></div>
 
       <div id="navbarLinks">
         <Link class="navLink" to="/chat">
           <i class="fa fa-comment"></i>
         </Link>
-        <Link class="navLink navLinkBigButton" to="/notifications">
-          <i class="fa fa-bell"></i>
+        <Link className="navLink navLinkBigButton" to="/notifications">
+          <i className="fa fa-bell"></i>
         </Link>
         <div id="profileDropdown">
-          <button class="navLink navLinkBigButton">
+          <button className="navLink navLinkBigButton">
             <img
               id="profileDropdownLink"
               src="https://images.unsplash.com/photo-1674574124976-a56d9052c2f8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
             ></img>
-            <i class="fa fa-angle-up rotatable"></i>
+            <i className="fa fa-angle-up rotatable"></i>
           </button>
           <div id="profileDropdownContent">
-            <Link class="navLink navLinkDropdown" to="/profile">
+            <Link className="navLink navLinkDropdown" to="/profile">
               View Profile
             </Link>
-            <Link class="navLink" to="/settings">
+            <Link className="navLink" to="/settings">
               Settings
             </Link>
-            <Link class="navLink" to="/help">
+            <Link className="navLink" to="/help">
               Help
             </Link>
-            <button class="navLink" onClick={logoutAndRedirectHome}>
+            <button className="navLink" onClick={logoutAndRedirectHome}>
               Log Out
             </button>
           </div>
@@ -89,25 +90,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
-// <div className="nav-container">
-//   <div className="logo">
-//     <img src="/images/MainLogo.png" alt="My Logo" />
-//   </div>
-//   <nav className="nav-links">
-//     {isLoggedIn ? (
-//       <div className="nav-items">
-//         <Link to="/home">Home</Link>
-//         <Link to="/profile">Profile</Link>
-//         <button type="button" onClick={logoutAndRedirectHome} className="logout">
-//           Logout
-//         </button>
-//       </div>
-//     ) : (
-//       <div className="nav-items">
-//         <Link to="/login">Login</Link>
-//         <Link to="/signup">Sign Up</Link>
-//       </div>
-//     )}
-//   </nav>
-// </div>

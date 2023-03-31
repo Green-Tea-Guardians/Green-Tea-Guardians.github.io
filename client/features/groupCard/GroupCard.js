@@ -1,18 +1,21 @@
 import React from "react";
-// import { useSelector, useDispatch } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-const GroupCard = () => {
+const GroupCard = ({ group }) => {
+  if (!group) {
+    return null;
+  }
+
   return (
-    <Link to="/" class="groupCard hoverShadowedLink">
-      <div class="groupCardPicture"></div>
-      <div class="groupCardQuickButton">+</div>
-      <div class="groupCardInfo">
-        <div class="groupCardTitle">Title</div>
-        <div class="groupCardActivityType">Activity Type</div>
-        <div class="groupCardLocation">Location</div>
-        <div class="groupCardDate">Date</div>
-        <div class="groupCardNumberOfPeople">Number of People</div>
+    <Link to={`/group/${group.id}`} className="groupCard hoverShadowedLink">
+      <div className="groupCardPicture"></div>
+      <div className="groupCardQuickButton">+</div>
+      <div className="groupCardInfo">
+        <div className="groupCardTitle">{group.name}</div>
+        <div className="groupCardActivityType">{group.description}</div>
+        <div className="groupCardLocation">{group.location}</div>
+        <div className="groupCardDate">{group.createdAt}</div>
+        <div className="groupCardNumberOfPeople">{group.size} people</div>
       </div>
     </Link>
   );
