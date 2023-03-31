@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchGroupsAsync, selectAllGroups } from '../group/groupSlice';
 
-const SearchGroup = () => {
+const SearchApp = () => {
     const dispatch = useDispatch()
     const groups = useSelector(selectAllGroups)
 
@@ -26,4 +26,4 @@ const SearchGroup = () => {
     );
 }
 
-export default SearchGroup
+export default SearchApp
