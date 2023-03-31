@@ -1,18 +1,18 @@
 import { useParams } from 'react-router-dom';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import GroupCard from "../groupCard/GroupCard";
+import { fetchGroupById } from './groupSlice';
 
 
 const SingleGroup = (props) => {
+  const group = useSelector(state => state.groups.group);
   const dispatch = useDispatch();
   const { id: groupId } = useParams();
-  const allGroups = useSelector(selectAllGroups);
 
   useEffect(() => {
-    console.log("Fetching all groups");
-    dispatch(fetchGroupsAsync());
-  }, [dispatch]);
-
+    dispatch(fetchGroupById(groupId));
+  }, [dispatch, groupId]);
 
   const singleGroup = allGroups.find(group => group.id === parseInt(groupId));
 
