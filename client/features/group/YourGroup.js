@@ -12,7 +12,6 @@ const YourGroups = ({ creatorId }) => {
   useEffect(() => {
     const fetchedCreatorId = creatorId || (auth.me && auth.me.id);
     if (fetchedCreatorId) {
-      console.log("fetchGroupsByCreatorId with creatorId:", fetchedCreatorId);
       dispatch(fetchGroupsByCreatorId(fetchedCreatorId));
     }
   }, [dispatch, creatorId, auth]);

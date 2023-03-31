@@ -27,7 +27,8 @@ const singleGroupSlice = createSlice({
   },
 });
 
-export default singleGroupSlice.reducer;
+export const selectSingleGroup = (state) => {
+  return state.singleGroup
+}
 
-// Selector
-export const selectSingleGroup = (state) => state.singleGroup;
+export default singleGroupSlice.reducer;
