@@ -1,44 +1,34 @@
-# FS-App-Template
 
-## Setup
+# Gaggle - FullStack Academy Capstone Project
 
-To use this as boilerplate, you'll need to take the following steps:
+Gaggle is a social app developed as part of the senior phase curriculum at FullStack Academy. The team set out to create a tool that would help individuals connect with others who share similar interests. 
+## Tech Stack
 
-- Don't fork or clone this repo! Instead, create a new, empty
-  directory on your machine and `git init` (or create an empty repo on
-  Github and clone it to your local machine)
+**Client:** 
+React,
+Redux,
+Axios,
+CSS
 
-- Now you will have to add the fs-app-template as a remote and merge it into your own repository.
+**Server:** Node,
+ Express,
+  Firebase
 
-```
-git remote add boilermaker git@github.com:FullstackAcademy/fs-app-template-v2.git
-git fetch boilermaker
-git merge boilermaker/main
-git branch -m master main
-```
 
-## Customize
+## Features
 
-Now that you've got the code, follow these steps to get acclimated:
+- Sign up/login: Users can easily create an account or log in to an existing one.
 
-- Update project name and description in `package.json`
-- `npm install`
-- Create two postgres databases (`MY_APP_NAME` should match the `name`
-  parameter in `package.json`):
-- These commands will create both your **development** and **test** databases
+- Create a group: Users have the ability to create their own groups based on their interests and invite others to join.
 
-```
-createdb <YOUR APP NAME HERE FROM package.json>
-createdb <YOUR APP NAME HERE FROM package.json>-test
-```
+- Find groups: Users can browse existing groups created by other members and join the ones that match their interests.
 
-- By default, running `npm test` will use your test database, while
-  regular development uses development database
+- View membership: Users can see the groups they are members of and keep track of their involvement.
 
-## Start
+## 🔗 Acknowledgments
 
-Sync and seed your database by running `npm run seed`. Running `npm run start:dev` will make great things happen!
-
-- start:dev will both start your server and build your client side files using webpack
-- start:dev:logger is the same as start:dev, but you will see your SQL queries (can be helpful for debugging)
-- start:dev:seed will start your server and also seed your database (this is useful when you are making schema changes and you don't want to run your seed script separately)
+* [Mentor]Lucas Maul[![GitHub](https://img.shields.io/badge/-GitHub-000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Lmaul77)
+* Chris Kang [![GitHub](https://img.shields.io/badge/-GitHub-000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/kang-chris)
+* Michael Chong [![GitHub](https://img.shields.io/badge/-GitHub-000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/michael92chong)
+* James Thayer[![GitHub](https://img.shields.io/badge/-GitHub-000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Thayerjam)
+* Nicole Montes [![GitHub](https://img.shields.io/badge/-GitHub-000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Nikolemar)
