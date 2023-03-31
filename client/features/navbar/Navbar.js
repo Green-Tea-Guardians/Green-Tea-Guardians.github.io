@@ -20,6 +20,7 @@ const Navbar = () => {
       </Link>
 
       <div className="navLineDivider"></div>
+      <div className="navLineDivider"></div>
 
       <div id="navbarMiddleSection">
         <div id="navbarSearchBar">
@@ -54,8 +55,8 @@ const Navbar = () => {
       <div className="navLineDivider"></div>
 
       <div id="navbarLinks">
-        <Link className="navLink navLinkBigButton" to="/messenger">
-          <i className="fa fa-comment"></i>
+        <Link class="navLink" to="/chat">
+          <i class="fa fa-comment"></i>
         </Link>
         <Link className="navLink navLinkBigButton" to="/notifications">
           <i className="fa fa-bell"></i>

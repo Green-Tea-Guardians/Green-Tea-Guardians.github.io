@@ -9,7 +9,6 @@ import SearchGroup from "../features/group/SearchGroup";
 import GroupLanding from "../features/group/GroupLanding";
 import UserProfile from "../features/users/UserProfile";
 import ChatApp from "../features/chat/ChatApp";
-import Messenger from "../features/messenger/Messenger";
 import YourGroup from "../features/group/YourGroup";
 import About from "../features/users/About";
 import Setting from "../features/users/Setting";
@@ -36,7 +35,6 @@ const AppRoutes = () => {
           <Route path="/groups" element={<GroupLanding />} />
           <Route path="/profile" element={<UserProfile/>}/>
           <Route path="/chat" element={<ChatApp />} />
-          <Route path="/messenger" element={<Messenger />} />
           <Route path="/yourGroup" element={<YourGroup />} />
           <Route path="/about" element={<About />} />
           <Route path="/settings" element={<Setting />} />
