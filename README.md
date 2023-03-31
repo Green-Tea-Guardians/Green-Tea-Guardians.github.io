@@ -27,13 +27,8 @@ CSS
 
 ## 🔗 Acknowledgments
 
-[Mentor]Lucas Maul
-* [![GitHub](https://img.shields.io/badge/-GitHub-000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Lmaul77)
-Chris Kang
-*  [![GitHub](https://img.shields.io/badge/-GitHub-000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/kang-chris)
-Michael Chong 
-* [![GitHub](https://img.shields.io/badge/-GitHub-000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/michael92chong)
-James Thayer
-* [![GitHub](https://img.shields.io/badge/-GitHub-000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Thayerjam)
-Nicole Montes 
-* [![GitHub](https://img.shields.io/badge/-GitHub-000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Nikolemar)
+- [Lucas Maul](https://github.com/Lmaul77) FSA Mentor
+- [Chris Kang](https://github.com/kang-chris)
+- [Michael Chong](https://github.com/michael92chong)
+- [James Thayer](https://github.com/Thayerjam)
+- [Nicole Montes](https://github.com/Nikolemar)
