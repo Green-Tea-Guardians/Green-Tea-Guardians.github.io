@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 const CreateGroup = () => {
   const userId = useSelector((state) => state.me && state.me.id);
   const dispatch = useDispatch();
-  const navigate = useNavigate(); // Move this line outside of handleSubmit
+  const navigate = useNavigate();
   const [groupData, setGroupData] = useState({
     name: '',
     description: '',
@@ -17,25 +17,32 @@ const CreateGroup = () => {
     public: '',
     ages: '',
   });
-
+ 
+ 
   const handleChange = (event) => {
     const { name, value } = event.target;
     setGroupData((prevGroupData) => ({ ...prevGroupData, [name]: value }));
   };
-
+ 
+ 
   const handleSubmit = (event) => {
     event.preventDefault();
+    if (!groupData.name || !groupData.ages) {
+      // Return if the name or ages fields are empty
+      alert('Name and Ages fields are required!');
+      return;
+    }
     const data = {
       ...groupData,
       size: groupData.size || 0,
-      creatorId: userId, // Add the creatorId field
+      creatorId: userId,
     };
-    dispatch(createGroupAsync(data));
-    navigate('/yourGroup');
+    dispatch(createGroupAsync({ groupData: data })).then(() => {
+      navigate('/yourGroup');
+    });
   };
-  
   return (
-    <div> 
+    <div>
     <Navbar></Navbar>
     <div id="createGroupContainer">
       <h1 id="createGroupTitle">Create a group</h1>
@@ -69,6 +76,6 @@ const CreateGroup = () => {
     </div>
     </div>
   );
-};
+ };
 
-export default CreateGroup;
+ export default CreateGroup;

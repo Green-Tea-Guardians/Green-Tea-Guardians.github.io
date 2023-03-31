@@ -15,7 +15,7 @@ import About from "../features/users/About";
 import Setting from "../features/users/Setting";
 import Help from "../features/users/Help";
 import Notifications from "../features/notifications/Notifications";
-import GroupDetail from "../features/group/GroupDetail";
+
 
 const AppRoutes = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
@@ -42,7 +42,6 @@ const AppRoutes = () => {
           <Route path="/settings" element={<Setting />} />
           <Route path="/help" element={<Help />} />
           <Route path="/notifications" element={<Notifications />} />
-          <Route path="/group/:groupId" element={<GroupDetail />} />
         </Routes>
       ) : (
         <Routes>

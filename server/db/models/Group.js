@@ -26,7 +26,7 @@ const Group = db.define('groups', {
     allowNull: false
   },
   creatorId: {
-    type: Sequelize.STRING,
+    type: Sequelize.INTEGER,
     allowNull: false
   }
 });
