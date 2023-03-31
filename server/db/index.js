@@ -3,11 +3,8 @@ const db = require('./db')
 const User = require('./models/User')
 const Group = require('./models/Group')
 
-//associations could go here!
-// User model
-User.hasMany(Group, { as: "groups", foreignKey: "creatorId" });
 
-// Group model
+User.hasMany(Group, { as: "groups", foreignKey: "creatorId" });
 Group.belongsTo(User, { as: "creator", foreignKey: "creatorId" });
 
 module.exports = {

@@ -22,14 +22,14 @@ router.get('/:groupId', async (req, res, next) => {
 
 router.get('/creator/:creatorId', async (req, res, next) => {
   try {
-    const creatorId = parseInt(req.params.creatorId, 10); // Convert the creatorId to an integer
+    const creatorId = parseInt(req.params.creatorId, 10); 
     if (isNaN(creatorId)) {
-      return res.status(400).send("Invalid creatorId"); // Return an error if the value is not a valid integer
+      return res.status(400).send("Invalid creatorId"); 
     }
 
     const groups = await Group.findAll({
       where: {
-        creatorId: creatorId, // Use the converted integer value
+        creatorId: creatorId,
       },
     });
 
@@ -43,7 +43,6 @@ router.get('/creator/:creatorId', async (req, res, next) => {
 router.post('/', async (req, res) => {
   try {
     const { creatorId, ...groupData } = req.body;
-    // Check if name and ages properties exist in groupData
     if (!groupData.name || !groupData.ages) {
       return res.status(400).json({ message: 'Name and ages are required fields.' });
     }

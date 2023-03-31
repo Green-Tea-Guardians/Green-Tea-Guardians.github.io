@@ -28,7 +28,6 @@ const CreateGroup = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     if (!groupData.name || !groupData.ages) {
-      // Return if the name or ages fields are empty
       alert('Name and Ages fields are required!');
       return;
     }
