@@ -23,7 +23,7 @@ router.get('/:username', async (req, res, next) => {
       },
       attributes: ['id', 'username'], 
     });
-    res.json(user); // Return the user as JSON
+    res.json(user); 
   } catch (err) {
     next(err); // Pass any errors to the error handler middleware
   }
@@ -34,12 +34,12 @@ router.get('/id/:id', async (req, res, next) => {
   try {
     const user = await User.findOne({ 
       where: {
-        id: req.params.id, // Find the user by their id, which is passed as a URL parameter
+        id: req.params.id, 
       },
       attributes: ['id', 'username'], 
     });
-    res.json(user); // Return the user as JSON
+    res.json(user);
   } catch (err) {
-    next(err); // Pass any errors to the error handler middleware
+    next(err); 
   }
 });
