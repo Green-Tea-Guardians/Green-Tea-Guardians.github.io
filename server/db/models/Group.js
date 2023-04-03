@@ -31,6 +31,4 @@ const Group = db.define('groups', {
   }
 });
 
-
-
 module.exports = Group
