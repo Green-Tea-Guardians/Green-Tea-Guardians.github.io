@@ -1,19 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Navbar from "../navbar/Navbar";
+import Profile from "../profile/Profile";
 
 const UserProfile = () => {
   return (
     <div>
       <Navbar></Navbar>
-      <div id="user-container">
-        <Link to="/about"> About You </Link>
-        <Link to="/setting"> Additional Settings </Link>
-        <Link to="/chat"> Chat </Link>
-        <Link to="/yourGroup"> Your Groups </Link>
-      </div>
+      <Profile></Profile>
     </div>
   );
-}
+};
 
 export default UserProfile;

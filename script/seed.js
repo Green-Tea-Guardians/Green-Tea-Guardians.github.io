@@ -5,9 +5,8 @@ const {
   models: { User, Group },
 } = require("../server/db");
 
-
 async function seed() {
-  await db.sync({ force: true }); 
+  await db.sync({ force: true });
   console.log("db synced!");
 
   const users = await Promise.all([
@@ -52,6 +51,60 @@ async function seed() {
       ages: "18 and up",
       creatorId: user2.id,
     }),
+    Group.create({
+      name: "Board Games",
+      description: "Let's play some board games!",
+      location: "y",
+      size: 6,
+      public: true,
+      ages: "18 and up",
+      creatorId: user2.id,
+    }),
+    Group.create({
+      name: "Board Games",
+      description: "Let's play some board games!",
+      location: "y",
+      size: 6,
+      public: true,
+      ages: "18 and up",
+      creatorId: user2.id,
+    }),
+    Group.create({
+      name: "Board Games",
+      description: "Let's play some board games!",
+      location: "y",
+      size: 6,
+      public: true,
+      ages: "18 and up",
+      creatorId: user2.id,
+    }),
+    Group.create({
+      name: "Board Games",
+      description: "Let's play some board games!",
+      location: "y",
+      size: 6,
+      public: true,
+      ages: "18 and up",
+      creatorId: user2.id,
+    }),
+    Group.create({
+      name: "Board Games",
+      description: "Let's play some board games!",
+      location: "y",
+      size: 6,
+      public: true,
+      ages: "18 and up",
+      creatorId: user2.id,
+    }),
+    Group.create({
+      name: "Board Games",
+      description: "Let's play some board games!",
+      location: "y",
+      size: 6,
+      public: true,
+      ages: "18 and up",
+      creatorId: user2.id,
+    }),
   ]);
 
   console.log(`seeded ${users.length} users`);
@@ -86,6 +139,5 @@ async function runSeed() {
 if (module === require.main) {
   runSeed();
 }
-
 
 module.exports = seed;
