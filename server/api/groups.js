@@ -5,18 +5,18 @@ const { models: { Group, User }} = require('../db');
 // GET all groups
 router.get('/', async (req, res, next) => {
   try {
-    const groups = await Group.findAll(); // Retrieve all groups
-    res.json(groups); // Return the groups as JSON
+    const groups = await Group.findAll(); 
+    res.json(groups); 
   } catch (err) {
-    next(err); // Pass any errors to the error handler middleware
+    next(err);
   }
 });
 
 // GET a single group by ID
 router.get('/:groupId', async (req, res, next) => {
   try {
-    const groupId = await Group.findByPk(req.params.groupId); // Retrieve the group by its ID
-    res.json(groupId); // Return the group as JSON
+    const groupId = await Group.findByPk(req.params.groupId); 
+    res.json(groupId); 
   } catch (err) {
     next(err); // Pass any errors to the error handler middleware
   }
@@ -25,36 +25,36 @@ router.get('/:groupId', async (req, res, next) => {
 // GET all groups created by a particular user
 router.get('/creator/:creatorId', async (req, res, next) => {
   try {
-    const creatorId = parseInt(req.params.creatorId, 10); // Parse the creator ID as an integer
+    const creatorId = parseInt(req.params.creatorId, 10);
     if (isNaN(creatorId)) { // Check if the creator ID is valid
-      return res.status(400).send("Invalid creatorId"); // Return a 400 error if the ID is invalid
+      return res.status(400).send("Invalid creatorId");
     }
 
-    const groups = await Group.findAll({ // Retrieve all groups created by the user with the specified ID
+    const groups = await Group.findAll({ 
       where: {
         creatorId: creatorId,
       },
     });
 
-    res.json(groups); // Return the groups as JSON
+    res.json(groups); 
   } catch (err) {
-    next(err); // Pass any errors to the error handler middleware
+    next(err); 
   }
 });
 
 // POST a new group
 router.post('/', async (req, res) => {
   try {
-    const { creatorId, ...groupData } = req.body; // Extract the creator ID and group data from the request body
-    if (!groupData.name || !groupData.ages) { // Check that the name and ages fields are present
-      return res.status(400).json({ message: 'Name and ages are required fields.' }); // Return a 400 error if either field is missing
+    const { creatorId, ...groupData } = req.body; 
+    if (!groupData.name || !groupData.ages) { 
+      return res.status(400).json({ message: 'Name and ages are required fields.' }); 
     }
  
-    const group = await Group.create({ ...groupData, creatorId }); // Create a new group with the extracted data
-    res.status(201).json(group); // Return the new group as JSON
+    const group = await Group.create({ ...groupData, creatorId }); 
+    res.status(201).json(group); 
   } catch (error) {
-    console.error(error); // Log any errors to the console
-    res.status(500).json({ message: 'Failed to create group.' }); // Return a 500 error with a JSON message
+    console.error(error); 
+    res.status(500).json({ message: 'Failed to create group.' }); 
   }
  });
 
@@ -90,16 +90,16 @@ router.get('/:groupId/members', async (req, res, next) => {
   try {
     const groupId = req.params.groupId;
     const group = await Group.findByPk(groupId, {
-      include: { model: User, as: 'users' }, // Assuming 'users' is the alias you've used in your many-to-many relationship
+      include: { model: User, as: 'users' }, 
     });
 
     if (!group) {
       return res.status(404).json({ message: `Group with ID ${groupId} not found` });
     }
 
-    res.json(group.users); // Return the members (users) of the group as JSON
+    res.json(group.users);
   } catch (err) {
-    next(err); // Pass any errors to the error handler middleware
+    next(err);
   }
 });
 
@@ -107,17 +107,17 @@ router.get('/:groupId/members', async (req, res, next) => {
 // POST a user leaving a group
 router.post('/:groupId/leave', async (req, res, next) => {
   try {
-    const groupId = req.params.groupId; // Get the group ID from the URL parameters
-    const userId = req.body.userId; // Get the user ID from the request body
+    const groupId = req.params.groupId; 
+    const userId = req.body.userId; 
 
-    const group = await Group.findByPk(groupId); // Find the group by its ID
-    const user = await User.findByPk(userId); // Find the user by their ID
+    const group = await Group.findByPk(groupId); 
+    const user = await User.findByPk(userId); 
 
-    await group.removeUser(user); // Remove the user from the group
+    await group.removeUser(user);
 
-    res.status(200).json({ message: 'User has left the group' }); // Return a 200 response with a JSON message
+    res.status(200).json({ message: 'User has left the group' }); 
   } catch (err) {
-    next(err); // Pass any errors to the error handler middleware
+    next(err);
   }
 });
 
