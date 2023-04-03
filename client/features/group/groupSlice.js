@@ -48,6 +48,9 @@ export const fetchGroupsByCreatorId = createAsyncThunk(
 export const fetchGroupById = createAsyncThunk(
   'group/fetchGroupById',
   async (groupId, { rejectWithValue }) => {
+    if (!groupId) {
+      return rejectWithValue('Invalid group ID');
+    }
     try {
       const response = await axios.get(`/api/groups/${groupId}`);
       return response.data;
@@ -56,6 +59,7 @@ export const fetchGroupById = createAsyncThunk(
     }
   }
 );
+
 
 export const joinGroupAsync = createAsyncThunk(
   'group/joinGroup',
@@ -104,8 +108,8 @@ export const allGroupsSlice = createSlice({
         return action.payload
       })
       .addCase(fetchGroupById.fulfilled, (state, action) => {
-        return action.payload
-      });
+        return [...state, action.payload];
+      });      
   },
 });
 

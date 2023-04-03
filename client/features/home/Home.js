@@ -5,6 +5,7 @@ import { logout } from "../../app/store";
 import Categories from "../categories/Categories";
 import GroupCard from "../groupCard/GroupCard";
 import Navbar from "../navbar/Navbar";
+import SingleGroup from "../group/SingleGroup";
 
 const Home = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);

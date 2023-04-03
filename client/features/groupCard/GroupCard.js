@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import { joinGroupAsync } from "../group/groupSlice";
 import axios from "axios";
 
 const GroupCard = ({ group }) => {
   const [creatorUsername, setCreatorUsername] = useState("");
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const userId = useSelector((state) => state.auth.me.id);
 
   useEffect(() => {
     const fetchCreatorUsername = async () => {
@@ -30,20 +32,22 @@ const GroupCard = ({ group }) => {
   const handleJoinGroup = async (event) => {
     event.preventDefault();
     event.stopPropagation();
-    const userId = "yourUserId";
+
     try {
-      const response = await axios.post("/api/groupMembers", { groupId: group.id, userId, role: "member" });
-      console.log("Successfully joined the group:", response.data);
+      await dispatch(joinGroupAsync({ userId, groupId: group.id }));
+      console.log("Successfully joined the group");
     } catch (error) {
       console.error("Error joining the group:", error);
     }
   };
+
   return (
-    <Link to={`/group/${group.id}`} className="groupCard hoverShadowedLink">
+    <Link to={`/groups/${group.id}`} className="groupCard hoverShadowedLink">
       <div className="groupCardPicture"></div>
-      <div className="groupCardQuickButton">
+      <div className="groupCardQuickButton" onClick={handleJoinGroup}>
         +
       </div>
+
       <div className="groupCardInfo">
         <div className="groupCardTitle">{group.name}</div>
         <div className="groupCardActivityType">{group.description}</div>
