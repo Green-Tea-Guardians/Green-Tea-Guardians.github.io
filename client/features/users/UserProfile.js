@@ -6,14 +6,35 @@ const UserProfile = () => {
   return (
     <div>
       <Navbar></Navbar>
-      <div id="user-container">
-        <Link to="/about"> About You </Link>
-        <Link to="/setting"> Additional Settings </Link>
-        <Link to="/chat"> Chat </Link>
-        <Link to="/yourGroup"> Your Groups </Link>
+      <div class="bodySizedContainer centeredFlexColumn">
+        <div class="centeredContainer centeredFlexColumn">
+          <h1>Profile</h1>
+          <div id="profileContainer">
+            <div class="profileField">
+              <span>Name</span>
+              <input value="john"></input>
+            </div>
+            <div class="profileField">
+              <span>Email</span>
+              <input value="john"></input>
+            </div>
+            <div class="profileField">
+              <span>Gender</span>
+              <input value="john"></input>
+            </div>
+            <div class="profileField">
+              <span>Age</span>
+              <input value="john"></input>
+            </div>
+            <div class="profileField">
+              <span>Profile Picture</span>
+              <input value="john"></input>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
-}
+};
 
 export default UserProfile;
