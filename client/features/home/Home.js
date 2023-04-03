@@ -6,6 +6,8 @@ import Categories from "../categories/Categories";
 import GroupCard from "../groupCard/GroupCard";
 import Navbar from "../navbar/Navbar";
 import GroupLanding from "../group/GroupLanding";
+import SingleGroup from "../group/SingleGroup";
+
 
 const Home = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);

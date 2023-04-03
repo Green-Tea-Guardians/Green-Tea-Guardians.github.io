@@ -13,6 +13,7 @@ import YourGroups from "../features/group/YourGroups";
 import About from "../features/users/About";
 import Setting from "../features/users/Setting";
 import Notifications from "../features/notifications/Notifications";
+import SingleGroup from "../features/group/SingleGroup";
 
 const AppRoutes = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
@@ -31,7 +32,8 @@ const AppRoutes = () => {
           <Route path="/create" element={<CreateGroup />} />
           <Route path="/search" element={<SearchGroup />} />
           <Route path="/groups" element={<GroupLanding />} />
-          <Route path="/profile" element={<UserProfile />} />
+          <Route path="/groups/:id" element={<SingleGroup />} />
+          <Route path="/profile" element={<UserProfile/>}/>
           <Route path="/chat" element={<ChatApp />} />
           <Route path="/yourGroups" element={<YourGroups />} />
           <Route path="/about" element={<About />} />
