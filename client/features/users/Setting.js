@@ -1,13 +1,14 @@
 import React from "react";
 import Navbar from "../navbar/Navbar";
+import Settings from "../settings/Settings";
 
-const Setting = () =>{
+const Setting = () => {
   return (
     <div>
       <Navbar></Navbar>
-      <div>Additional Settings</div>
+      <Settings></Settings>
     </div>
   );
-}
+};
 
 export default Setting;

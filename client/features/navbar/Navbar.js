@@ -39,7 +39,7 @@ const Navbar = () => {
             </span>
           </div>
           <div id="groupsDropdownContent">
-            <Link className="navLink" to="/yourGroup">
+            <Link className="navLink" to="/yourGroups">
               Your Groups
             </Link>
             <Link className="navLink" to="/create">
@@ -76,8 +76,8 @@ const Navbar = () => {
             <Link className="navLink" to="/settings">
               Settings
             </Link>
-            <Link className="navLink" to="/help">
-              Help
+            <Link className="navLink" to="/about">
+              About
             </Link>
             <button className="navLink" onClick={logoutAndRedirectHome}>
               Log Out
