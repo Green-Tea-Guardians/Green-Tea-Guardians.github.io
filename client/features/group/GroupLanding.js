@@ -3,10 +3,8 @@ import Navbar from "../navbar/Navbar";
 import GroupCard from "../groupCard/GroupCard";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchGroupsAsync } from "./groupSlice";
-import { useNavigate } from "react-router-dom";
 
 function GroupLanding(props) {
-  let navigate = useNavigate();
   const dispatch = useDispatch();
   const allGroups = useSelector((state) => state.allGroups);
 
@@ -14,16 +12,6 @@ function GroupLanding(props) {
     dispatch(fetchGroupsAsync());
   }, [dispatch]);
 
-  const create = () => {
-    navigate("/create");
-  };
-  const search = () => {
-    navigate("/search");
-  };
-
-  if (!allGroups) {
-    return <div>Loading...</div>;
-  }
 
   return (
     <div>

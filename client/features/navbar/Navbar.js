@@ -55,8 +55,8 @@ const Navbar = () => {
       <div className="navLineDivider"></div>
 
       <div id="navbarLinks">
-        <Link class="navLink" to="/chat">
-          <i class="fa fa-comment"></i>
+        <Link className="navLink" to="/chat">
+          <i className="fa fa-comment"></i>
         </Link>
         <Link className="navLink navLinkBigButton" to="/notifications">
           <i className="fa fa-bell"></i>
