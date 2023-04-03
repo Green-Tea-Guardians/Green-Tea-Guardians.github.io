@@ -66,12 +66,13 @@ export const joinGroupAsync = createAsyncThunk(
   async ({ groupId, userId }, { rejectWithValue }) => {
     try {
       const response = await axios.post(`/api/groups/${groupId}/join`, { userId });
-      return response.data;
+      return response.data.group; // Dispatch the updated group object
     } catch (error) {
       return rejectWithValue(error.response.data);
     }
   }
-); 
+);
+
 
 export const leaveGroupAsync = createAsyncThunk(
   'group/leaveGroup',

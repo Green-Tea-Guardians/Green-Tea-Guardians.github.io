@@ -58,9 +58,7 @@ router.post('/', async (req, res) => {
   }
  });
 
- 
-// POST a user joining a group
-router.post('/:groupId/join', async (req, res, next) => {
+ router.post('/:groupId/join', async (req, res, next) => {
   try {
     const groupId = req.params.groupId;
     const userId = req.body.userId;
@@ -77,10 +75,31 @@ router.post('/:groupId/join', async (req, res, next) => {
     }
 
     await group.addUser(user);
+    const updatedGroup = await Group.findByPk(groupId, {
+      include: { model: User, as: 'users' },
+    });
 
-    res.status(200).json({ message: 'User has joined the group' });
+    res.status(200).json({ message: 'User has joined the group', group: updatedGroup });
   } catch (err) {
     next(err);
+  }
+});
+
+// GET all members of a specific group
+router.get('/:groupId/members', async (req, res, next) => {
+  try {
+    const groupId = req.params.groupId;
+    const group = await Group.findByPk(groupId, {
+      include: { model: User, as: 'users' }, // Assuming 'users' is the alias you've used in your many-to-many relationship
+    });
+
+    if (!group) {
+      return res.status(404).json({ message: `Group with ID ${groupId} not found` });
+    }
+
+    res.json(group.users); // Return the members (users) of the group as JSON
+  } catch (err) {
+    next(err); // Pass any errors to the error handler middleware
   }
 });
 

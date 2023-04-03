@@ -5,24 +5,6 @@ import { fetchGroupById } from './groupSlice';
 import { useParams } from 'react-router-dom';
 
 const SingleGroup = () => {
-  // const { id: groupId } = useParams();
-  // const allGroups = useSelector(state => state.allGroups);
-  // const [group, setGroup] = useState(null);
-  // const dispatch = useDispatch();
-
-  // useEffect(() => {
-  //   const fetchGroup = async () => {
-  //     dispatch(fetchGroupById(groupId));
-  //     const fetchedGroup = allGroups.find(g => g.id === parseInt(groupId, 10));
-  //     setGroup(fetchedGroup);
-  //   };
-
-  //   if (!group) {
-  //     fetchGroup();
-  //   }
-  // }, [dispatch, groupId, group, allGroups]);
-
-
   const { id: groupId } = useParams();
   const allGroups = useSelector(state => state.allGroups);
   const [group, setGroup] = useState(null);
@@ -34,12 +16,10 @@ const SingleGroup = () => {
       const fetchedGroup = allGroups.find(g => g.id === parseInt(groupId, 10));
       setGroup(fetchedGroup);
     };
-
     if (!group) {
       fetchGroup();
     }
   }, [dispatch, groupId, group, allGroups]);
-
 
   return (
     <div>

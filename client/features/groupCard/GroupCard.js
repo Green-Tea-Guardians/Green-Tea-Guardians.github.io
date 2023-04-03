@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { joinGroupAsync } from "../group/groupSlice";
+import { joinGroupAsync, fetchGroupById } from "../group/groupSlice";
 import axios from "axios";
 
 const GroupCard = ({ group }) => {
   const [creatorUsername, setCreatorUsername] = useState("");
+  const [members, setMembers] = useState([]);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const userId = useSelector((state) => state.auth.me.id);
@@ -20,8 +21,18 @@ const GroupCard = ({ group }) => {
       }
     };
 
+    const fetchGroupMembers = async () => {
+      try {
+        const response = await axios.get(`/api/groups/${group.id}/members`);
+        setMembers(response.data || []);
+      } catch (error) {
+        console.error("Error fetching group members:", error);
+      }
+    };
+
     if (group && group.creatorId) {
       fetchCreatorUsername();
+      fetchGroupMembers();
     }
   }, [group]);
 
@@ -29,34 +40,35 @@ const GroupCard = ({ group }) => {
     return null;
   }
 
-  const handleJoinGroup = async (event) => {
-    event.preventDefault();
-    event.stopPropagation();
-
-    try {
-      await dispatch(joinGroupAsync({ userId, groupId: group.id }));
-      console.log("Successfully joined the group");
-    } catch (error) {
-      console.error("Error joining the group:", error);
-    }
+  const handleJoinClick = async () => {
+    await dispatch(joinGroupAsync({ groupId: group.id, userId }));
+    await dispatch(fetchGroupById(group.id));
   };
 
   return (
     <Link to={`/groups/${group.id}`} className="groupCard hoverShadowedLink">
       <div className="groupCardPicture"></div>
-      <div className="groupCardQuickButton" onClick={handleJoinGroup}>
-        +
+      <div className="groupCardQuickButton">
+        <button onClick={handleJoinClick}>Join</button>
       </div>
-
+  
       <div className="groupCardInfo">
-        <div className="groupCardTitle">{group.name}</div>
-        <div className="groupCardActivityType">{group.description}</div>
-        <div className="groupCardLocation">{group.location}</div>
-        <div className="groupCardDate">{creatorUsername}</div>
-        <div className="groupCardNumberOfPeople">{group.size} people</div>
+        <div className="groupCardTitle">Group Name: {group.name}</div>
+        <div className="groupCardActivityType">Description: {group.description}</div>
+        <div className="groupCardLocation">Location: {group.location}</div>
+        <div className="groupCardDate">Created by: {creatorUsername}</div>
+        <div className="groupCardNumberOfPeople">
+          {group.size} people ({members.length} members)
+         <div className="groupCardMembers">
+         {members.map((member, index) => (
+           <div key={member.id || index} className="groupCardMember">
+             {member.username}
+           </div>
+         ))}
+       </div>
+        </div>
       </div>
     </Link>
   );
-};
-
+          }
 export default GroupCard;
