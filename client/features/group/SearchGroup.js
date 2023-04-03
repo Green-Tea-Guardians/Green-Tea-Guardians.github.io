@@ -3,7 +3,22 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchGroupsAsync, selectAllGroups } from "../group/groupSlice";
 import { useEffect } from "react";
 
+const filterGroups = (groups, query) => {
+    if (!query) {
+        return groups
+    }
+
+    return groups.filter((groups) => {
+        const groupName = groups.name
+        return groupName.includes(query)
+    })
+}
+
 const SearchGroup = () => {
+  const { search } = window.location;
+  const query = new URLSearchParams(search).get("s");
+  const filteredGroups = filterGroups(groupSearch, query);
+
   const dispatch = useDispatch();
   const groups = useSelector(selectAllGroups);
 
@@ -30,7 +45,7 @@ const SearchGroup = () => {
         <button type="submit">Search</button>
       </form>
       <ul>
-        {groupSearch.map((group) => (
+        {filteredGroups.map((group) => (
           <li key={group.id}>{group.name}</li>
         ))}
       </ul>
