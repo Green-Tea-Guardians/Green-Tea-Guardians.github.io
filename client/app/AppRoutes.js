@@ -30,7 +30,7 @@ const AppRoutes = () => {
           <Route path="/*" element={<Home />} />
           <Route path="/home" element={<Home />} />
           <Route path="/create" element={<CreateGroup />} />
-          <Route path="/search" element={<SearchGroup />} />
+          <Route path="/searchgroup" element={<SearchGroup />} />
           <Route path="/groups" element={<GroupLanding />} />
           <Route path="/groups/:id" element={<SingleGroup />} />
           <Route path="/profile" element={<UserProfile/>}/>
