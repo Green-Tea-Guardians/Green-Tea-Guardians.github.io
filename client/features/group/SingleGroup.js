@@ -20,13 +20,13 @@ const SingleGroup = () => {
   const group = allGroups.find((g) => g.id === parseInt(groupId, 10));
 
   return (
-    <div>
-      <Navbar/>
-      <h1>Single Group</h1>
-      <div className="groupCard">
+    <div> 
+    <Navbar/>
+      <div>
         {group ? <GroupCard group={group} /> : <p>Loading group...</p>}
       </div>
     </div>
+    
   );
 };
 

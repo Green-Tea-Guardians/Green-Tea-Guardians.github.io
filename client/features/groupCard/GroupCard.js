@@ -56,9 +56,10 @@ const GroupCard = ({ group }) => {
         <div className="groupCardActivityType">Description: {group.description}</div>
         <div className="groupCardLocation">Location: {group.location}</div>
         <div className="groupCardDate">Created by: {creatorUsername}</div>
-        <div className="groupCardNumberOfPeople">
-          {group.size} people ({members.length} members)
-         <div className="groupCardMembers">
+        <div className="groupCardNumberOfPeople"> 
+          {group.size} people ({members.length} joined)
+         <div className="groupCardMembers"> 
+         Members: 
          {members.map((member, index) => (
            <div key={member.id || index} className="groupCardMember">
              {member.username}

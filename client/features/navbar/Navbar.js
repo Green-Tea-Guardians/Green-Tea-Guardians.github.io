@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { logout } from "../../app/store";
-import SearchGroup from "../group/SearchGroup";
+
 
 const Navbar = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
@@ -10,7 +10,7 @@ const Navbar = () => {
   const navigate = useNavigate();
   const logoutAndRedirectHome = () => {
     dispatch(logout());
-    navigate("/login");
+    navigate("/home");
   };
 
   return (
@@ -25,7 +25,6 @@ const Navbar = () => {
 
       <div id="navbarMiddleSection">
         <div id="navbarSearchBar">
-          <SearchGroup />
         </div>
 
         <div id="groupsDropdown">
@@ -72,9 +71,6 @@ const Navbar = () => {
             </Link>
             <Link className="navLink" to="/settings">
               Settings
-            </Link>
-            <Link className="navLink" to="/help">
-              Help
             </Link>
             <button className="navLink" onClick={logoutAndRedirectHome}>
               Log Out

@@ -5,7 +5,6 @@ import AuthForm from "../features/auth/AuthForm";
 import Home from "../features/home/Home";
 import { me } from "./store";
 import CreateGroup from "../features/group/CreateGroup";
-import SearchGroup from "../features/group/SearchGroup";
 import GroupLanding from "../features/group/GroupLanding";
 import UserProfile from "../features/users/UserProfile";
 import ChatApp from "../features/chat/ChatApp";
@@ -30,7 +29,6 @@ const AppRoutes = () => {
           <Route path="/*" element={<Home />} />
           <Route path="/home" element={<Home />} />
           <Route path="/create" element={<CreateGroup />} />
-          <Route path="/searchgroup" element={<SearchGroup />} />
           <Route path="/groups" element={<GroupLanding />} />
           <Route path="/groups/:id" element={<SingleGroup />} />
           <Route path="/profile" element={<UserProfile/>}/>
