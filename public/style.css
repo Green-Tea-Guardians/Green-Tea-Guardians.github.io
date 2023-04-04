@@ -347,6 +347,93 @@ top: 10%;
   font-size: 20px;
 }
 
+#music {
+  background-image: url(https://images.unsplash.com/photo-1616538584195-65f4b11948dc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80);
+  background-repeat: no-repeat;
+ background-size: 100% 100%;
+  background-position: center;
+ }
+ 
+ 
+ #business {
+  background-image: url(https://images.unsplash.com/photo-1661956602868-6ae368943878?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
+ }
+ 
+ 
+ #golf {
+  background-image: url(https://images.unsplash.com/photo-1535131749006-b7f58c99034b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
+ }
+ 
+ 
+ #DandD {
+  background-image: url(https://images.unsplash.com/photo-1549056572-75914d5d5fd4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center;
+ }
+ 
+ 
+ #gaming{
+  background-image: url(https://images.unsplash.com/photo-1612287230202-1ff1d85d1bdf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+ background-position: center;
+ 
+ 
+ }
+ #climbing{
+  background-image: url(https://images.unsplash.com/photo-1588869222183-9269c9a5d330?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+ background-position: center;
+ 
+ 
+ }
+ #comedy{
+  background-image: url(https://images.unsplash.com/photo-1506882482183-3fc779ba50f4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
+ }
+ 
+ 
+ #hiking {
+  background-image: url(https://images.unsplash.com/photo-1440186347098-386b7459ad6b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
+ }
+ 
+ 
+ #trendingCategoriesBody a {
+  text-decoration: none;
+  color: #ff0000; /* bright yellow */
+  font-weight: bolder;
+ }
+ #trendingCategoriesBody a {
+  text-decoration: none;
+  color: white;
+  font-weight: 700; /* bold */
+ }
+ #trendingCategoriesBody a {
+  text-decoration: none;
+  color: white;
+  font-weight: bolder;
+  text-shadow: 1px 1px 2px #000000;
+ }
+ 
+ 
+ 
+ 
+
+
+
 #displayedGroupsContainer {
   display: flex;
   flex-wrap: wrap;

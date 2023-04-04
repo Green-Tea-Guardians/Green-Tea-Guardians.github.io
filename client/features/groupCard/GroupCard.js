@@ -46,29 +46,22 @@ const GroupCard = ({ group }) => {
 
   return (
     <Link to={`/groups/${group.id}`} className="groupCard hoverShadowedLink">
-      <div className="groupCardPicture"></div>
-      <div>
-        <button onClick={handleJoinClick} className="groupCardQuickButton">Join</button>
-      </div>
-  
       <div className="groupCardInfo">
-        <div className="groupCardTitle">Group Name: {group.name}</div>
-        <div className="groupCardActivityType">Description: {group.description}</div>
-        <div className="groupCardLocation">Location: {group.location}</div>
-        <div className="groupCardDate">Created by: {creatorUsername}</div>
-        <div className="groupCardNumberOfPeople"> 
-          {group.size} people ({members.length} joined)
-         <div className="groupCardMembers"> 
-         Members: 
-         {members.map((member, index) => (
-           <div key={member.id || index} className="groupCardMember">
-             {member.username}
-           </div>
-         ))}
-       </div>
+        <ul> 
+        <li>{group.name}</li>
+        <li >{group.description}</li>
+        <li >{group.location}</li>
+        <li >Created by: {creatorUsername}</li>
+        {group.size} people ({members.length} joined) 
+        Members: {members.map((member, index) => (
+        <div key={member.id || index}>{member.username}
+    
         </div>
+        ))}
+         </ul>
+         <button onClick={handleJoinClick}>Join</button>
       </div>
     </Link>
   );
-          }
+};
 export default GroupCard;
