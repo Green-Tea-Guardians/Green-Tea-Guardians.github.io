@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { joinGroupAsync, fetchGroupById } from "../group/groupSlice";
 import axios from "axios";
@@ -8,7 +8,6 @@ const GroupCard = ({ group }) => {
   const [creatorUsername, setCreatorUsername] = useState("");
   const [members, setMembers] = useState([]);
   const dispatch = useDispatch();
-  const navigate = useNavigate();
   const userId = useSelector((state) => state.auth.me.id);
 
   useEffect(() => {
@@ -47,28 +46,22 @@ const GroupCard = ({ group }) => {
 
   return (
     <Link to={`/groups/${group.id}`} className="groupCard hoverShadowedLink">
-      <div className="groupCardPicture"></div>
-      <div className="groupCardQuickButton">
-        <button onClick={handleJoinClick}>Join</button>
-      </div>
-  
       <div className="groupCardInfo">
-        <div className="groupCardTitle">Group Name: {group.name}</div>
-        <div className="groupCardActivityType">Description: {group.description}</div>
-        <div className="groupCardLocation">Location: {group.location}</div>
-        <div className="groupCardDate">Created by: {creatorUsername}</div>
-        <div className="groupCardNumberOfPeople">
-          {group.size} people ({members.length} members)
-         <div className="groupCardMembers">
-         {members.map((member, index) => (
-           <div key={member.id || index} className="groupCardMember">
-             {member.username}
-           </div>
-         ))}
-       </div>
+        <ul> 
+        <li>{group.name}</li>
+        <li >{group.description}</li>
+        <li >{group.location}</li>
+        <li >Created by: {creatorUsername}</li>
+        {group.size} people ({members.length} joined) 
+        Members: {members.map((member, index) => (
+        <div key={member.id || index}>{member.username}
+    
         </div>
+        ))}
+         </ul>
+         <button onClick={handleJoinClick} className="groupCardButton">Join</button>
       </div>
     </Link>
   );
-          }
+};
 export default GroupCard;

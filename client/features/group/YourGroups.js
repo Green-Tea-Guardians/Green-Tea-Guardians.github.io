@@ -20,7 +20,7 @@ const YourGroups = ({ creatorId }) => {
     <div>
       <Navbar></Navbar>
       <div className="groupsBody">
-        <h1>Your Groups</h1>
+        <h1>Created Groups</h1>
         <div id="displayedGroupsContainer">
           {groups.map((group) => (
             <GroupCard key={group.id} group={group} className="groupCard"></GroupCard>

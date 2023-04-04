@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { logout } from "../../app/store";
-import SearchGroup from "../group/SearchGroup";
+
 
 const Navbar = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
@@ -10,7 +10,7 @@ const Navbar = () => {
   const navigate = useNavigate();
   const logoutAndRedirectHome = () => {
     dispatch(logout());
-    navigate("/login");
+    navigate("/home");
   };
 
   return (
@@ -25,7 +25,6 @@ const Navbar = () => {
 
       <div id="navbarMiddleSection">
         <div id="navbarSearchBar">
-          <SearchGroup />
         </div>
 
         <div id="groupsDropdown">
@@ -36,8 +35,8 @@ const Navbar = () => {
             </span>
           </div>
           <div id="groupsDropdownContent">
-            <Link className="navLink" to="/yourGroup">
-              Your Groups
+            <Link className="navLink" to="/yourGroups">
+             Created Groups
             </Link>
             <Link className="navLink" to="/create">
               Create Group
@@ -52,8 +51,8 @@ const Navbar = () => {
       <div className="navLineDivider"></div>
 
       <div id="navbarLinks">
-        <Link class="navLink" to="/chat">
-          <i class="fa fa-comment"></i>
+        <Link className="navLink" to="/chat">
+          <i className="fa fa-comment"></i>
         </Link>
         <Link className="navLink navLinkBigButton" to="/notifications">
           <i className="fa fa-bell"></i>
@@ -72,9 +71,6 @@ const Navbar = () => {
             </Link>
             <Link className="navLink" to="/settings">
               Settings
-            </Link>
-            <Link className="navLink" to="/help">
-              Help
             </Link>
             <button className="navLink" onClick={logoutAndRedirectHome}>
               Log Out

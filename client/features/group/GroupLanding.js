@@ -8,7 +8,6 @@ import { fetchGroupsAsync } from "./groupSlice";
 function GroupLanding(props) {
   const dispatch = useDispatch();
   const allGroups = useSelector((state) => state.allGroups);
-
   useEffect(() => {
     dispatch(fetchGroupsAsync());
   }, [dispatch]);
