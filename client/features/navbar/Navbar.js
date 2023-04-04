@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { logout } from "../../app/store";
-
+import SearchGroup from "../group/SearchGroup";
 
 const Navbar = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
@@ -25,6 +25,7 @@ const Navbar = () => {
 
       <div id="navbarMiddleSection">
         <div id="navbarSearchBar">
+          <SearchGroup></SearchGroup>
         </div>
 
         <div id="groupsDropdown">
@@ -36,7 +37,7 @@ const Navbar = () => {
           </div>
           <div id="groupsDropdownContent">
             <Link className="navLink" to="/yourGroups">
-             Created Groups
+              Created Groups
             </Link>
             <Link className="navLink" to="/create">
               Create Group
