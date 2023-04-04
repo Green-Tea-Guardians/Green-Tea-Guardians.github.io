@@ -59,7 +59,7 @@ const GroupCard = ({ group }) => {
         </div>
         ))}
          </ul>
-         <button onClick={handleJoinClick}>Join</button>
+         <button onClick={handleJoinClick} className="groupCardButton">Join</button>
       </div>
     </Link>
   );

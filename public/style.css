@@ -479,19 +479,24 @@ top: 10%;
 .groupCardInfo {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  text-align: center;
   align-items: center;
   background-color: none;
   height: 50%;
   padding: 0px 10px;
 }
 
+
 .groupCardInfo * {
   width: 100%;
   padding: 5px 0px;
 }
 
-
+.groupCardButton{
+  width: 100px;
+  height: 30px;
+  font-size: 14px;
+}
 #createGroupContainer {
   margin-top: 70px;
   padding: 20px;
