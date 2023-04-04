@@ -3,22 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchGroupsAsync, selectAllGroups } from "../group/groupSlice";
 import { useEffect } from "react";
 
-const filterGroups = (groups, query) => {
-    if (!query) {
-        return groups
-    }
-
-    return groups.filter((groups) => {
-        const groupName = groups.name
-        return groupName.includes(query)
-    })
-}
-
 const SearchGroup = () => {
-  const { search } = window.location;
-  const query = new URLSearchParams(search).get("s");
-  const filteredGroups = filterGroups(groupSearch, query);
-
   const dispatch = useDispatch();
   const groups = useSelector(selectAllGroups);
 
@@ -26,9 +11,42 @@ const SearchGroup = () => {
     dispatch(fetchGroupsAsync(groups));
   }, [dispatch]);
 
-  console.log(groups, "these are the groups");
+  useEffect(() => {
+    searchGroups(groupSearch)
+  }, [groupSearch])
 
-  const groupSearch = groups.filter((group) => group.name);
+  // const filterGroups = (groups, query) => {
+  //   if (!query) {
+  //     console.log(groups, 'this is groups')
+  //     return groups;
+  //   }
+
+  //   return groups.filter((groups) => {
+  //     const groupName = groups.name;
+  //     console.log(groups, 'second groups')
+  //     return groupName.includes(query);
+  //   });
+  // };
+
+    function searchGroups(searchValue) {
+      if(searchValue.length) {
+        const data = groups.filter((group) => {
+          return group.name.toLowerCase().includes(searchValue.toLowerCase())
+        })
+        if(data.length > 0) {
+          setGroupFilteredData(data)
+        } else {
+          setGroupFilteredData([])
+        }
+      }
+    }
+    // set state and call data
+  
+  // const search = window.location;
+  // const query = new URLSearchParams(search).get("s");
+  // const groupSearch = groups.filter(group => group.name);
+  // const filteredGroups = filterGroups(groupSearch, query);
+
 
   return (
     <div>
@@ -40,7 +58,8 @@ const SearchGroup = () => {
           type="text"
           id="header-search"
           placeholder="Search for Groups"
-          name="s"
+          onChange={searchGroups}
+          value={searchValue}
         />
         <button type="submit">Search</button>
       </form>
