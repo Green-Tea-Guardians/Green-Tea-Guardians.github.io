@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { joinGroupAsync, fetchGroupById } from "../group/groupSlice";
 import axios from "axios";
@@ -8,7 +8,6 @@ const GroupCard = ({ group }) => {
   const [creatorUsername, setCreatorUsername] = useState("");
   const [members, setMembers] = useState([]);
   const dispatch = useDispatch();
-  const navigate = useNavigate();
   const userId = useSelector((state) => state.auth.me.id);
 
   useEffect(() => {
@@ -48,8 +47,8 @@ const GroupCard = ({ group }) => {
   return (
     <Link to={`/groups/${group.id}`} className="groupCard hoverShadowedLink">
       <div className="groupCardPicture"></div>
-      <div className="groupCardQuickButton">
-        <button onClick={handleJoinClick}>Join</button>
+      <div>
+        <button onClick={handleJoinClick} className="groupCardQuickButton">Join</button>
       </div>
   
       <div className="groupCardInfo">

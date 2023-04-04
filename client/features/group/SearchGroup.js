@@ -30,9 +30,9 @@ const SearchGroup = () => {
         <button type="submit">Search</button>
       </form>
       <ul>
-        {groupSearch.map((group) => (
-          <li key={group.id}>{group.name}</li>
-        ))}
+        {/* {groupSearch.map((group) => (
+          <li key={group.id}>{group.name}</li> */}
+        {/* ))} */}
       </ul>
     </div>
   );

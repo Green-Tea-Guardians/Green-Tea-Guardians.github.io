@@ -18,7 +18,7 @@ router.get('/:groupId', async (req, res, next) => {
     const groupId = await Group.findByPk(req.params.groupId); 
     res.json(groupId); 
   } catch (err) {
-    next(err); // Pass any errors to the error handler middleware
+    next(err); 
   }
 });
 
@@ -26,7 +26,7 @@ router.get('/:groupId', async (req, res, next) => {
 router.get('/creator/:creatorId', async (req, res, next) => {
   try {
     const creatorId = parseInt(req.params.creatorId, 10);
-    if (isNaN(creatorId)) { // Check if the creator ID is valid
+    if (isNaN(creatorId)) { 
       return res.status(400).send("Invalid creatorId");
     }
 
@@ -58,6 +58,7 @@ router.post('/', async (req, res) => {
   }
  });
 
+ // POST a user joining a group
  router.post('/:groupId/join', async (req, res, next) => {
   try {
     const groupId = req.params.groupId;
@@ -103,7 +104,13 @@ router.get('/:groupId/members', async (req, res, next) => {
   }
 });
 
-
+// router.get('/:groupId/members/:userId', async (req, res, next) => {
+// try{ 
+// const group = 
+// }catch(err){
+//     next(err)
+// }
+// });
 // POST a user leaving a group
 router.post('/:groupId/leave', async (req, res, next) => {
   try {

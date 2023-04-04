@@ -45,11 +45,34 @@ export const fetchGroupsByCreatorId = createAsyncThunk(
   }
 );
 
+export const fetchGroupIfMember = createAsyncThunk(
+  'group/fetchGroupIfMember',
+  async (groupId, { rejectWithValue, getState }) => {
+    try {
+      const response = await axios.get(`/api/groups/${groupId}/members`);
+
+      if (response.status === 200 && response.data) {
+        const currentUser = getState().user;
+        const isMember = response.data.some(member => member.id === currentUser.id);
+        if (isMember) {
+          return response.data;
+        } else {
+          throw new Error('User is not a member of the group');
+        }
+      } else {
+        throw new Error(response.data);
+      }
+    } catch (error) {
+      return rejectWithValue(error.response.data);
+    }
+  }
+);
+
 export const fetchGroupById = createAsyncThunk(
-  'group/fetchGroupById',
+  "group/fetchGroupById",
   async (groupId, { rejectWithValue }) => {
     if (!groupId) {
-      return rejectWithValue('Invalid group ID');
+      return rejectWithValue("Invalid group ID");
     }
     try {
       const response = await axios.get(`/api/groups/${groupId}`);
@@ -60,12 +83,13 @@ export const fetchGroupById = createAsyncThunk(
   }
 );
 
-
 export const joinGroupAsync = createAsyncThunk(
-  'group/joinGroup',
+  "group/joinGroup",
   async ({ groupId, userId }, { rejectWithValue }) => {
     try {
-      const response = await axios.post(`/api/groups/${groupId}/join`, { userId });
+      const response = await axios.post(`/api/groups/${groupId}/join`, {
+        userId,
+      });
       return response.data.group; // Dispatch the updated group object
     } catch (error) {
       return rejectWithValue(error.response.data);
@@ -73,19 +97,19 @@ export const joinGroupAsync = createAsyncThunk(
   }
 );
 
-
 export const leaveGroupAsync = createAsyncThunk(
-  'group/leaveGroup',
+  "group/leaveGroup",
   async ({ groupId, userId }, { rejectWithValue }) => {
     try {
-      const response = await axios.post(`/api/groups/${groupId}/leave`, { userId });
+      const response = await axios.post(`/api/groups/${groupId}/leave`, {
+        userId,
+      });
       return response.data;
     } catch (error) {
       return rejectWithValue(error.response.data);
     }
   }
 );
-
 
 export const allGroupsSlice = createSlice({
   name: "allGroups",
@@ -103,18 +127,28 @@ export const allGroupsSlice = createSlice({
         return action.payload;
       })
       .addCase(joinGroupAsync.fulfilled, (state, action) => {
-       return action.payload
+        return action.payload;
       })
       .addCase(leaveGroupAsync.fulfilled, (state, action) => {
-        return action.payload
+        return action.payload;
       })
       .addCase(fetchGroupById.fulfilled, (state, action) => {
         return [...state, action.payload];
-      });      
-  },
+      })
+      .addCase(fetchGroupIfMember.fulfilled, (state, action) => {
+        const group = action.payload;
+        const currentUser = state.auth.me;
+        const isMember = group.some((member) => member === currentUser.id);
+        // if (isMember) {
+        //   // If the current user is a member, add the group to the state
+        //   return [...state, group];
+        // } else {
+        //   // If the current user is not a member, do not update the state
+        //   return state;
+        // }
+      });
+    },
 });
-
-
 
 export const selectAllGroups = (state) => {
   return state.allGroups;
