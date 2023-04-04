@@ -43,7 +43,7 @@ const SearchGroup = () => {
     }
     
   // const groupSearch = groups.filter(group => group.name);
-
+  
   return (
     <div>
       {/* <form action="/" method="get">*/}
