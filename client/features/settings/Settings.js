@@ -8,32 +8,32 @@ const Settings = () => {
   const navigate = useNavigate();
 
   return (
-    <div class="bodySizedContainer centeredFlexColumn">
-      <div class="centeredContainer centeredFlexColumn">
+    <div className="bodySizedContainer centeredFlexColumn">
+      <div className="centeredContainer centeredFlexColumn">
         <h1>Settings</h1>
         <div id="settingsContainer">
-          <div class="settingsBlock">
+          <div className="settingsBlock">
             <input type="checkbox" id="darkModeInput" name="darkMode"></input>
             <label for="darkMode">Dark Mode</label>
           </div>
-          <div class="settingsBlock">
+          <div className="settingsBlock">
             <input type="checkbox" id="privateProfile" name="privateProfile"></input>
             <label for="privateProfile">Make profile private</label>
           </div>
           <span>Notifications</span>
-          <div class="settingsBlock">
+          <div className="settingsBlock">
             <input type="checkbox" id="groupAcceptanceSetting" name="groupAcceptance" checked></input>
             <label for="groupAcceptance">Include group acceptance</label>
           </div>
-          <div class="settingsBlock">
+          <div className="settingsBlock">
             <input type="checkbox" id="groupUpdatesSetting" name="groupUpdates" checked></input>
             <label for="groupUpdates">Include group updates</label>
           </div>
-          <div class="settingsBlock">
+          <div className="settingsBlock">
             <input type="checkbox" id="groupMessagesSetting" name="groupMessages" checked></input>
             <label for="groupMessages">Include group messages</label>
           </div>
-          <div class="settingsBlock">
+          <div className="settingsBlock">
             <input type="checkbox" id="directMessagesSetting" name="directMessages" checked></input>
             <label for="directMessages">Include direct messages</label>
           </div>
